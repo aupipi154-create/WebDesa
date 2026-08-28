@@ -783,3 +783,109 @@ footer {
   }
 
 }
+/* =========================
+   INFORMASI DESA
+========================= */
+
+.desa-info {
+
+  padding: 70px 6%;
+
+  background: #e5f1d8;
+
+  text-align: center;
+
+}
+
+
+.desa-info-content {
+
+  max-width: 850px;
+
+  margin: auto;
+
+}
+
+
+.desa-info .label {
+
+  color: #578b51;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+}
+
+
+.desa-info h2 {
+
+  font-size: 42px;
+
+  color: #285b3a;
+
+  margin: 10px 0 25px;
+
+}
+
+
+.alamat {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin: 25px 0;
+
+}
+
+
+.alamat p {
+
+  margin: 0;
+
+  padding: 16px;
+
+  background: #f8fff2;
+
+  border-radius: 12px;
+
+  border:
+    1px solid #d2e3c5;
+
+  color: #45614d;
+
+}
+
+
+.deskripsi-desa {
+
+  max-width: 700px;
+
+  margin: 25px auto 0;
+
+  color: #5d7062;
+
+  font-size: 17px;
+
+}
+
+
+@media(max-width:700px) {
+
+  .alamat {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .desa-info h2 {
+
+    font-size: 32px;
+
+  }
+
+}
