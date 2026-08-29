@@ -889,3 +889,102 @@ footer {
   }
 
 }
+
+/* =========================
+   BUDAYA & KEBERSAMAAN
+========================= */
+
+.budaya-section {
+
+  background: #e3efd7;
+
+  padding: 90px 6%;
+
+}
+
+
+.budaya-grid {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+
+}
+
+
+.budaya-box {
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  background: #fbfff7;
+
+  border:
+    1px solid #d5e4ca;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(50,90,45,.10);
+
+  transition: .3s;
+
+}
+
+
+.budaya-box:hover {
+
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 40px
+    rgba(50,90,45,.18);
+
+}
+
+
+.budaya-box .icon {
+
+  font-size: 50px;
+
+  margin-bottom: 10px;
+}
+
+
+.budaya-box h3 {
+
+  color: #2c653f;
+
+  font-size: 23px;
+
+}
+
+
+.budaya-box p {
+
+  color: #637467;
+
+}
+
+
+/* Tampilan HP */
+
+@media(max-width:700px) {
+
+  .budaya-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
