@@ -1138,168 +1138,205 @@ footer {
   }
 
 }
-/* =================================
-   BUKU TAMU
-================================= */
+
+/* =========================================
+   BUKU TAMU ONLINE - TEMA DESA MENSERE
+========================================= */
 
 .message-box {
-
+  width: 100%;
   max-width: 900px;
-
-  margin: 60px auto 0;
-
-  padding: 50px;
+  margin: 45px auto 0;
+  padding: 45px;
+  box-sizing: border-box;
 
   background: #fff8fa;
 
-  border: 1px solid #ead5da;
-
+  border: 2px solid #e5b8c5;
   border-radius: 30px;
 
   box-shadow:
-    0 10px 30px rgba(80, 60, 60, 0.10);
+    0 12px 30px rgba(80, 60, 60, 0.10);
 
 }
 
 
-/* JUDUL */
+/* =========================================
+   JUDUL BUKU TAMU
+========================================= */
 
 .message-title {
-
   text-align: center;
-
-  margin-bottom: 40px;
-
+  margin-bottom: 35px;
 }
 
-.message-title span {
 
+.message-title span {
   display: inline-block;
 
-  padding: 7px 18px;
-
-  border-radius: 30px;
+  padding: 8px 20px;
 
   background: #dcefd4;
-
   color: #4d8145;
 
+  border-radius: 50px;
+
+  font-size: 14px;
   font-weight: bold;
 
   letter-spacing: 1px;
-
 }
+
 
 .message-title h2 {
+  margin: 18px 0 10px;
 
-  margin-top: 18px;
+  color: #285c3c;
 
-  font-size: 38px;
-
-  color: #263238;
-
+  font-size: 36px;
+  line-height: 1.2;
 }
+
 
 .message-title p {
+  margin: 0;
 
-  color: #777;
+  color: #6f6f6f;
 
-  font-size: 17px;
-
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 
-/* FORM */
+/* =========================================
+   FORM
+========================================= */
 
-.message-box form {
+#guestForm {
+  width: 100%;
 
   display: flex;
-
   flex-direction: column;
 
+  box-sizing: border-box;
 }
 
-.message-box label {
+
+/* LABEL */
+
+#guestForm label {
+  display: block;
 
   margin-top: 18px;
-
   margin-bottom: 8px;
 
-  font-size: 17px;
+  color: #315b3d;
 
+  font-size: 16px;
   font-weight: bold;
-
-  color: #374151;
-
 }
 
-.message-box input,
-.message-box textarea {
+
+/* INPUT & TEXTAREA */
+
+#guestForm input,
+#guestForm textarea {
 
   width: 100%;
 
-  padding: 17px 20px;
+  box-sizing: border-box;
 
-  border: 2px solid #dddde1;
+  padding: 15px 18px;
 
-  border-radius: 22px;
+  background: #ffffff;
 
-  background: white;
+  border: 2px solid #e5cbd2;
+
+  border-radius: 16px;
+
+  color: #333;
 
   font-size: 16px;
-
   font-family: inherit;
 
   outline: none;
 
-  transition: 0.3s;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 
 }
 
-.message-box textarea {
+
+/* TEXTAREA */
+
+#guestForm textarea {
+
+  min-height: 150px;
 
   resize: vertical;
 
-  min-height: 140px;
+  line-height: 1.5;
 
 }
 
-.message-box input:focus,
-.message-box textarea:focus {
+
+/* PLACEHOLDER */
+
+#guestForm input::placeholder,
+#guestForm textarea::placeholder {
+
+  color: #aaa;
+
+}
+
+
+/* SAAT INPUT DIKLIK */
+
+#guestForm input:focus,
+#guestForm textarea:focus {
 
   border-color: #669e59;
 
+  background: #fff;
+
   box-shadow:
-    0 0 0 4px rgba(102,158,89,0.10);
+    0 0 0 4px rgba(102, 158, 89, 0.12);
 
 }
 
 
-/* TOMBOL KIRIM */
+/* =========================================
+   TOMBOL KIRIM
+========================================= */
 
 .send-message-btn {
 
+  width: 100%;
+
   margin-top: 25px;
 
-  padding: 17px;
+  padding: 16px 20px;
 
   border: none;
-
-  border-radius: 25px;
+  border-radius: 18px;
 
   background: #669e59;
-
   color: white;
 
-  font-size: 18px;
-
+  font-size: 17px;
   font-weight: bold;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 
 }
+
 
 .send-message-btn:hover {
 
@@ -1307,37 +1344,53 @@ footer {
 
   transform: translateY(-2px);
 
+  box-shadow:
+    0 8px 18px rgba(77, 129, 69, 0.20);
+
 }
 
 
-/* STATUS */
+.send-message-btn:active {
+
+  transform: translateY(0);
+
+}
+
+
+/* =========================================
+   STATUS PESAN
+========================================= */
 
 #statusPesan {
 
-  margin-top: 15px;
+  margin: 15px 0 0;
 
   padding: 10px;
 
   text-align: center;
 
+  font-size: 15px;
   font-weight: bold;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
 }
 
 
-/* =================================
+/* =========================================
    AKSES ADMIN
-================================= */
+========================================= */
 
 .admin-access {
 
+  width: 100%;
   max-width: 900px;
 
   margin: 0 auto;
 
-  padding: 0 50px 40px;
+  padding: 0 45px 35px;
+
+  box-sizing: border-box;
 
   background: #fff8fa;
 
@@ -1346,106 +1399,116 @@ footer {
 }
 
 
-/* GARIS */
+/* GARIS PEMISAH */
 
 .admin-divider {
 
+  width: 100%;
+
   height: 1px;
 
-  background: #e6e0e2;
+  margin-bottom: 20px;
 
-  margin-bottom: 25px;
+  background: #e5cbd2;
 
 }
 
 
-/* TOMBOL AKSES */
+/* TOMBOL ADMIN */
 
 .admin-access-btn {
 
   width: 100%;
 
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 18px;
+  padding: 15px;
 
   border: none;
 
   background: transparent;
 
-  color: #6b7280;
+  color: #65716a;
 
-  font-size: 18px;
-
+  font-size: 16px;
   font-weight: bold;
+
+  border-radius: 15px;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 
 }
+
 
 .admin-access-btn:hover {
 
-  color: #669e59;
+  background: #edf6e9;
+
+  color: #4d8145;
 
 }
 
 
-/* =================================
+/* =========================================
    LOGIN ADMIN
-================================= */
+========================================= */
 
 .admin-login-box {
 
+  width: 100%;
   max-width: 500px;
 
   margin: 30px auto;
 
   padding: 35px;
 
-  background: white;
+  box-sizing: border-box;
 
-  border: 1px solid #e5d4d9;
+  background: #fff8fa;
+
+  border: 2px solid #e5b8c5;
 
   border-radius: 25px;
 
+  box-shadow:
+    0 10px 25px rgba(80, 60, 60, 0.10);
+
   text-align: center;
 
-  box-shadow:
-    0 8px 25px rgba(0,0,0,0.08);
-
 }
+
 
 .admin-login-box h2 {
 
-  color: #3f603b;
+  margin-top: 0;
 
-  margin-bottom: 10px;
+  color: #285c3c;
 
 }
+
 
 .admin-login-box p {
 
   color: #777;
 
+  line-height: 1.5;
+
 }
+
 
 .admin-login-box input {
 
   width: 100%;
 
-  margin-top: 20px;
+  box-sizing: border-box;
 
-  padding: 15px;
+  margin-top: 15px;
 
-  border: 2px solid #ddd;
+  padding: 14px 16px;
+
+  border: 2px solid #e5cbd2;
 
   border-radius: 15px;
 
@@ -1454,6 +1517,17 @@ footer {
   outline: none;
 
 }
+
+
+.admin-login-box input:focus {
+
+  border-color: #669e59;
+
+  box-shadow:
+    0 0 0 4px rgba(102, 158, 89, 0.12);
+
+}
+
 
 .admin-login-box button {
 
@@ -1480,28 +1554,39 @@ footer {
 }
 
 
-/* =================================
+.admin-login-box button:hover {
+
+  background: #4d8145;
+
+}
+
+
+/* =========================================
    PANEL ADMIN
-================================= */
+========================================= */
 
 .admin-panel {
 
+  width: 100%;
   max-width: 1100px;
 
   margin: 30px auto;
 
   padding: 30px;
 
-  background: white;
+  box-sizing: border-box;
 
-  border: 1px solid #e5d4d9;
+  background: #fff8fa;
+
+  border: 2px solid #e5b8c5;
 
   border-radius: 25px;
 
   box-shadow:
-    0 8px 25px rgba(0,0,0,0.08);
+    0 10px 25px rgba(80, 60, 60, 0.10);
 
 }
+
 
 .admin-panel-header {
 
@@ -1517,25 +1602,34 @@ footer {
 
 }
 
+
 .admin-panel-header h2 {
 
-  color: #3f603b;
+  margin-bottom: 5px;
+
+  color: #285c3c;
 
 }
 
+
 .admin-panel-header p {
+
+  margin: 0;
 
   color: #777;
 
 }
 
+
+/* LOGOUT */
+
 .logout-admin {
 
-  padding: 10px 18px;
+  padding: 11px 20px;
 
   border: none;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   background: #d16d88;
 
@@ -1548,7 +1642,16 @@ footer {
 }
 
 
-/* TABLE */
+.logout-admin:hover {
+
+  background: #b95772;
+
+}
+
+
+/* =========================================
+   TABEL ADMIN
+========================================= */
 
 .admin-table-wrapper {
 
@@ -1557,6 +1660,7 @@ footer {
   overflow-x: auto;
 
 }
+
 
 .admin-table {
 
@@ -1567,6 +1671,7 @@ footer {
   border-collapse: collapse;
 
 }
+
 
 .admin-table th {
 
@@ -1580,76 +1685,141 @@ footer {
 
 }
 
+
 .admin-table td {
 
   padding: 14px;
 
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ead9de;
+
+  color: #444;
 
   vertical-align: top;
 
 }
 
+
 .admin-table tr:hover td {
 
-  background: #fff4f7;
+  background: #fff0f4;
 
 }
 
 
-/* =================================
-   HP
-================================= */
+/* =========================================
+   RESPONSIVE HP
+========================================= */
 
 @media (max-width: 700px) {
 
   .message-box {
 
-    margin: 30px 15px 0;
+    width: calc(100% - 30px);
 
-    padding: 30px 20px;
+    margin: 30px auto 0;
 
-    border-radius: 25px;
+    padding: 28px 20px;
+
+    border-radius: 24px;
 
   }
+
+
+  .message-title {
+
+    margin-bottom: 25px;
+
+  }
+
+
+  .message-title span {
+
+    font-size: 12px;
+
+    padding: 7px 15px;
+
+  }
+
 
   .message-title h2 {
 
-    font-size: 29px;
+    font-size: 28px;
+
+    margin-top: 15px;
 
   }
 
+
   .message-title p {
+
+    font-size: 14px;
+
+  }
+
+
+  #guestForm label {
 
     font-size: 15px;
 
   }
 
+
+  #guestForm input,
+  #guestForm textarea {
+
+    font-size: 15px;
+
+    padding: 14px 15px;
+
+    border-radius: 14px;
+
+  }
+
+
+  #guestForm textarea {
+
+    min-height: 130px;
+
+  }
+
+
+  .send-message-btn {
+
+    font-size: 16px;
+
+    padding: 15px;
+
+  }
+
+
   .admin-access {
 
-    margin: 0 15px;
+    width: calc(100% - 30px);
 
     padding: 0 20px 25px;
 
   }
 
+
   .admin-access-btn {
 
-    font-size: 16px;
+    font-size: 15px;
 
   }
 
+
   .admin-login-box {
 
-    margin: 25px 15px;
+    width: calc(100% - 30px);
 
     padding: 25px 20px;
 
   }
 
+
   .admin-panel {
 
-    margin: 25px 15px;
+    width: calc(100% - 30px);
 
     padding: 20px;
 
@@ -1657,13 +1827,15 @@ footer {
 
   }
 
+
   .admin-panel-header {
 
     flex-direction: column;
 
-    align-items: flex-start;
+    align-items: stretch;
 
   }
+
 
   .logout-admin {
 
@@ -1672,3 +1844,11 @@ footer {
   }
 
 }
+
+
+
+
+  
+  
+    
+  
