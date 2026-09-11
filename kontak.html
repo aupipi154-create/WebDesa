@@ -55,10 +55,6 @@
       Kontak
     </a>
 
-    <a href="admin.html">
-      Admin
-    </a>
-
   </nav>
 
 </header>
@@ -225,34 +221,6 @@
   </section>
 
 
-
-  <!-- PESAN PENGUNJUNG -->
-
-  <section class="visitor-section">
-
-    <h2>
-      💬 Pesan Pengunjung
-    </h2>
-
-    <p class="visitor-description">
-      Berikut beberapa pesan yang telah dikirim
-      oleh pengunjung Desa Mensere.
-    </p>
-
-
-    <div
-      id="visitorMessages"
-      class="visitor-messages">
-
-      <p class="visitor-loading">
-        Memuat pesan...
-      </p>
-
-    </div>
-
-  </section>
-
-
 </main>
 
 
@@ -372,6 +340,58 @@ if (guestForm) {
   );
 
 }
+  <!-- ADMIN -->
+<section class="admin-section" id="admin">
+
+  <h2>🔐 Admin Desa Mensere</h2>
+
+  <p>Masukkan password untuk membuka data pesan.</p>
+
+  <div class="admin-login">
+
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Masukkan password">
+
+    <button type="button" onclick="loginAdmin()">
+      🔑 Masuk Admin
+    </button>
+
+    <p id="adminStatus"></p>
+
+  </div>
+
+
+  <!-- PANEL ADMIN -->
+
+  <div id="adminPanel" style="display:none;">
+
+    <h3>📋 Data Pesan Pengunjung</h3>
+
+    <div class="admin-table-wrapper">
+
+      <table class="admin-table">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Pesan</th>
+          </tr>
+        </thead>
+
+        <tbody id="adminData">
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 /* =========================
@@ -420,14 +440,8 @@ function loadVisitorMessages() {
                 Belum ada pesan pengunjung.
               </p>
             </div>
-          `;
-
-          return;
-
-        }
-
-
-        /* Pesan terbaru di atas */
+            
+          /* Pesan terbaru di atas */
 
         data.reverse();
 
@@ -470,18 +484,20 @@ function loadVisitorMessages() {
 
         console.error(error);
 
-        container.innerHTML = `
+        container.innerHTML = '
           <div class="visitor-empty">
             <p>
               ❌ Pesan belum dapat dimuat.
             </p>
           </div>
-        `;
+        ';
 
-      }
+          }
 
+          return;
 
-      delete window[callbackName];
+        }
+        delete window[callbackName];
 
       const script =
         document.getElementById(callbackName);
@@ -516,7 +532,6 @@ function loadVisitorMessages() {
             ❌ Pesan belum dapat dimuat.
           </p>
         </div>
-      `;
 
       delete window[callbackName];
 
