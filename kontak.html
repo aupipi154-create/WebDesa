@@ -7,12 +7,15 @@
 
   <title>Kontak - Desa Mensere</title>
 
+  <!-- CSS UTAMA -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- ==============================
+       NAVBAR
+  =============================== -->
 
   <header class="navbar">
 
@@ -27,36 +30,33 @@
       <a href="fasilitas.html">Fasilitas</a>
       <a href="budaya.html">Budaya</a>
       <a href="galeri.html">Galeri</a>
-      <a href="kontak.html" class="active">Kontak</a>
+      <a href="kontak.html">Kontak</a>
     </nav>
 
   </header>
 
 
-  <!-- ================= HEADER ================= -->
+  <!-- ==============================
+       JUDUL HALAMAN
+  =============================== -->
 
   <section class="page-header">
 
-    <div class="container">
+    <h1>📞 Kontak Desa Mensere</h1>
 
-      <h1>📞 Kontak Desa Mensere</h1>
-
-      <p>
-        Sampaikan pesan, saran, dan aspirasi
-        untuk Desa Mensere.
-      </p>
-
-    </div>
+    <p>
+      Hubungi Pemerintah Desa Mensere
+    </p>
 
   </section>
 
 
-  <!-- ================= KONTAK ================= -->
-
   <main class="container">
 
 
-    <!-- INFORMASI KONTAK -->
+    <!-- ==============================
+         INFORMASI KONTAK
+    =============================== -->
 
     <section class="contact-info">
 
@@ -65,10 +65,8 @@
         <h3>📍 Alamat</h3>
 
         <p>
-          Desa Mensere<br>
-          Kecamatan Tebas<br>
-          Kabupaten Sambas<br>
-          Kalimantan Barat
+          Desa Mensere, Kecamatan Tebas,
+          Kabupaten Sambas, Kalimantan Barat
         </p>
 
       </div>
@@ -79,7 +77,7 @@
         <h3>📱 Telepon</h3>
 
         <p>
-          Pemerintah Desa Mensere
+          0812-3456-7890
         </p>
 
       </div>
@@ -90,7 +88,7 @@
         <h3>📧 Email</h3>
 
         <p>
-          Pemerintah Desa Mensere
+          desamensere@gmail.com
         </p>
 
       </div>
@@ -98,7 +96,9 @@
     </section>
 
 
-    <!-- ================= MAP ================= -->
+    <!-- ==============================
+         PETA
+    =============================== -->
 
     <section class="contact-map">
 
@@ -108,10 +108,8 @@
 
         <iframe
           src="https://www.google.com/maps?q=Desa%20Mensere%20Sambas%20Kalimantan%20Barat&output=embed"
-          width="100%"
-          height="350"
-          style="border:0;"
-          loading="lazy">
+          loading="lazy"
+          allowfullscreen>
         </iframe>
 
       </div>
@@ -119,27 +117,28 @@
     </section>
 
 
-    <!-- ================= BUKU TAMU ================= -->
+    <!-- ==============================
+         KIRIM PESAN
+    =============================== -->
 
     <section class="message-box">
 
       <div class="message-title">
 
-        <span>BUKU TAMU ONLINE</span>
-
-        <h2>
-          Kirim Pesan & Aspirasi
-        </h2>
+        <h2>💌 Kirim Pesan</h2>
 
         <p>
-          Data Anda akan langsung tersimpan
-          ke database desa.
+          Silakan isi formulir di bawah
+          untuk menyampaikan pesan atau masukan.
         </p>
 
       </div>
 
 
       <form id="guestForm">
+
+
+        <!-- NAMA -->
 
         <label for="nama">
           Nama Lengkap
@@ -148,9 +147,11 @@
         <input
           type="text"
           id="nama"
-          placeholder="Masukkan nama Anda..."
+          placeholder="Masukkan nama lengkap"
           required>
 
+
+        <!-- EMAIL -->
 
         <label for="email">
           Email
@@ -159,9 +160,11 @@
         <input
           type="email"
           id="email"
-          placeholder="Masukkan email Anda..."
+          placeholder="Masukkan email"
           required>
 
+
+        <!-- PESAN -->
 
         <label for="pesan">
           Pesan / Masukan
@@ -169,573 +172,269 @@
 
         <textarea
           id="pesan"
-          rows="5"
-          placeholder="Tuliskan pesan atau masukan untuk desa..."
+          placeholder="Tuliskan pesan atau masukan..."
           required></textarea>
 
+
+        <!-- TOMBOL -->
 
         <button
           type="submit"
           class="send-message-btn">
 
-          📨 Kirim ke Database
+          💌 Kirim Pesan
 
         </button>
 
 
-        <p id="statusPesan"></p>
+        <!-- STATUS -->
+
+        <p id="Pesan anda sudah terkirim. Terima kasih"></p>
 
       </form>
 
     </section>
 
 
-    <!-- ================= AKSES ADMIN ================= -->
+    <!-- ==============================
+         UCAPAN TERIMA KASIH
+    =============================== -->
 
-    <section class="admin-access">
+    <div class="thank-you-message">
 
-      <div class="admin-divider"></div>
-
-      <button
-        type="button"
-        class="admin-access-btn"
-        onclick="openAdminLogin()">
-
-        👥
-        <span>Akses Panel Admin Desa</span>
-
-      </button>
-
-    </section>
-
-
-    <!-- ================= LOGIN ADMIN ================= -->
-
-    <section
-      id="adminLoginBox"
-      class="admin-login-box"
-      style="display:none;">
-
-      <h2>
-        🔐 Panel Admin Desa
-      </h2>
+      <div class="thank-icon">
+        🌿
+      </div>
 
       <p>
-        Masukkan password untuk melihat
-        pesan yang masuk.
+        Terima kasih telah menghubungi Desa Mensere.
       </p>
 
+    </div>
 
-      <input
-        type="password"
-        id="adminPassword"
-        placeholder="Masukkan password">
-
-
-      <button
-        type="button"
-        onclick="loginAdmin()">
-
-        🔑 Masuk ke Panel Admin
-
-      </button>
-
-
-      <p id="adminStatus"></p>
-
-    </section>
-
-
-    <!-- ================= PANEL ADMIN ================= -->
-
-    <section
-      id="adminPanel"
-      class="admin-panel"
-      style="display:none;">
-
-      <div class="admin-panel-header">
-
-        <div>
-
-          <h2>
-            📋 Data Pesan Desa
-          </h2>
-
-          <p>
-            Data diambil dari Google Sheets.
-          </p>
-
-        </div>
-
-
-        <button
-          type="button"
-          onclick="logoutAdmin()"
-          class="logout-admin">
-
-          Keluar
-
-        </button>
-
-      </div>
-
-
-      <div class="admin-table-wrapper">
-
-        <table class="admin-table">
-
-          <thead>
-
-            <tr>
-              <th>ID</th>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Pesan</th>
-            </tr>
-
-          </thead>
-
-
-          <tbody id="adminData">
-
-            <tr>
-
-              <td colspan="4">
-                Belum login sebagai admin.
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
 
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ==============================
+       FOOTER
+  =============================== -->
 
   <footer>
 
     <p>
-      © <span class="current-year"></span>
+      © <span id="tahun"></span>
       Desa Mensere.
-      Semua hak dilindungi.
+      Semua Hak Dilindungi.
     </p>
 
   </footer>
 
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- ==============================
+       TOMBOL KEMBALI KE ATAS
+  =============================== -->
+
+  <button
+    id="topButton"
+    title="Kembali ke atas">
+
+    ↑
+
+  </button>
+
+
+  <!-- ==============================
+       JAVASCRIPT
+  =============================== -->
 
   <script>
 
-    /* ==========================================
-       URL GOOGLE APPS SCRIPT
-    ========================================== */
+    /* =================================
+       GOOGLE APPS SCRIPT
+    ================================= */
 
     const CONTACT_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
 
 
-    /* ==========================================
-       PASSWORD ADMIN
-    ========================================== */
+    /* =================================
+       TAHUN FOOTER
+    ================================= */
 
-    const ADMIN_PASSWORD = "admin123";
-
-
-    /* ==========================================
-       TAHUN OTOMATIS
-    ========================================== */
-
-    document
-      .querySelectorAll(".current-year")
-      .forEach(function(element) {
-
-        element.textContent =
-          new Date().getFullYear();
-
-      });
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
 
 
-    /* ==========================================
-       KIRIM PESAN
-    ========================================== */
+    /* =================================
+       FORM PESAN
+    ================================= */
 
     const guestForm =
       document.getElementById("guestForm");
 
-
-    guestForm.addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
+    const statusPesan =
+      document.getElementById("statusPesan");
 
 
-        const nama =
-          document.getElementById("nama").value.trim();
+    guestForm.addEventListener("submit", function(event) {
 
-        const email =
-          document.getElementById("email").value.trim();
-
-        const pesan =
-          document.getElementById("pesan").value.trim();
-
-        const status =
-          document.getElementById("statusPesan");
+      event.preventDefault();
 
 
-        if (!nama || !email || !pesan) {
+      /* AMBIL DATA */
 
-          status.textContent =
-            "❌ Semua kolom harus diisi.";
+      const nama =
+        document.getElementById("nama").value.trim();
 
-          status.style.color =
-            "#d16d88";
+      const email =
+        document.getElementById("email").value.trim();
 
-          return;
+      const pesan =
+        document.getElementById("pesan").value.trim();
+
+
+      /* CEK DATA */
+
+      if (
+        nama === "" ||
+        email === "" ||
+        pesan === ""
+      ) {
+
+        statusPesan.textContent =
+          "⚠️ Silakan isi semua kolom terlebih dahulu.";
+
+        statusPesan.style.color =
+          "#d16d88";
+
+        return;
+      }
+
+
+      /* SEDANG MENGIRIM */
+
+      statusPesan.textContent =
+        "⏳ Sedang mengirim pesan...";
+
+      statusPesan.style.color =
+        "#669e59";
+
+
+      /* KIRIM KE GOOGLE SHEETS */
+
+      fetch(CONTACT_SCRIPT_URL, {
+
+        method: "POST",
+
+        body: JSON.stringify({
+
+          nama: nama,
+          email: email,
+          pesan: pesan
+
+        })
+
+      })
+
+      .then(function(response) {
+
+        return response.json();
+
+      })
+
+      .then(function(data) {
+
+
+        /* BERHASIL */
+
+        if (data.status === "success") {
+
+          statusPesan.textContent =
+            "✅ Pesan berhasil dikirim!";
+
+          statusPesan.style.color =
+            "#4d8145";
+
+
+          /* KOSONGKAN FORM */
+
+          guestForm.reset();
 
         }
 
 
-        status.textContent =
-          "⏳ Sedang mengirim pesan...";
+        /* GAGAL */
 
-        status.style.color =
-          "#777";
+        else {
 
+          statusPesan.textContent =
+            "❌ Pesan gagal dikirim. Silakan coba lagi.";
 
-        fetch(CONTACT_SCRIPT_URL, {
-
-          method: "POST",
-
-          body: JSON.stringify({
-
-            nama: nama,
-            email: email,
-            pesan: pesan
-
-          })
-
-        })
-
-
-        .then(function(response) {
-
-          return response.json();
-
-        })
-
-
-        .then(function(data) {
-
-          if (data.status === "success") {
-
-            status.textContent =
-              "✅ Pesan berhasil dikirim! Terima kasih telah menghubungi Desa Mensere.";
-
-            status.style.color =
-              "#4d8145";
-
-            guestForm.reset();
-
-          } else {
-
-            status.textContent =
-              "❌ Pesan gagal dikirim.";
-
-            status.style.color =
-              "#d16d88";
-
-          }
-
-        })
-
-
-        .catch(function(error) {
-
-          console.error(error);
-
-          status.textContent =
-            "❌ Terjadi kesalahan saat mengirim pesan.";
-
-          status.style.color =
+          statusPesan.style.color =
             "#d16d88";
 
-        });
+        }
 
-      }
-    );
-
-
-    /* ==========================================
-       BUKA LOGIN ADMIN
-    ========================================== */
-
-    function openAdminLogin() {
-
-      const loginBox =
-        document.getElementById("adminLoginBox");
+      })
 
 
-      loginBox.style.display =
-        "block";
+      /* ERROR */
 
+      .catch(function(error) {
 
-      loginBox.scrollIntoView({
+        console.error(error);
 
-        behavior: "smooth",
+        statusPesan.textContent =
+          "❌ Terjadi kesalahan saat mengirim pesan.";
 
-        block: "center"
+        statusPesan.style.color =
+          "#d16d88";
 
       });
 
-    }
+    });
 
 
-    /* ==========================================
-       LOGIN ADMIN
-    ========================================== */
+    /* =================================
+       TOMBOL KEMBALI KE ATAS
+    ================================= */
 
-    function loginAdmin() {
-
-      const password =
-        document.getElementById("adminPassword").value;
+    const topButton =
+      document.getElementById("topButton");
 
 
-      const status =
-        document.getElementById("adminStatus");
+    window.addEventListener("scroll", function() {
 
+      if (window.scrollY > 400) {
 
-      const panel =
-        document.getElementById("adminPanel");
-
-
-      if (password === ADMIN_PASSWORD) {
-
-        status.textContent =
-          "✅ Login berhasil.";
-
-        status.style.color =
-          "#4d8145";
-
-
-        panel.style.display =
-          "block";
-
-
-        loadAdminData();
-
-
-        panel.scrollIntoView({
-
-          behavior: "smooth",
-
-          block: "start"
-
-        });
+        topButton.classList.add("visible");
 
       }
 
       else {
 
-        status.textContent =
-          "❌ Password salah.";
-
-        status.style.color =
-          "#d16d88";
-
-
-        panel.style.display =
-          "none";
+        topButton.classList.remove("visible");
 
       }
 
-    }
+    });
 
 
-    /* ==========================================
-       AMBIL DATA GOOGLE SHEETS
-    ========================================== */
+    topButton.addEventListener("click", function() {
 
-    function loadAdminData() {
+      window.scrollTo({
 
-      const table =
-        document.getElementById("adminData");
+        top: 0,
 
+        behavior: "smooth"
 
-      table.innerHTML = `
+      });
 
-        <tr>
-
-          <td colspan="4">
-
-            ⏳ Mengambil data dari Google Sheets...
-
-          </td>
-
-        </tr>
-
-      `;
-
-
-      fetch(CONTACT_SCRIPT_URL)
-
-
-        .then(function(response) {
-
-          return response.json();
-
-        })
-
-
-        .then(function(data) {
-
-          table.innerHTML = "";
-
-
-          if (
-            !Array.isArray(data) ||
-            data.length === 0
-          ) {
-
-            table.innerHTML = `
-
-              <tr>
-
-                <td colspan="4">
-
-                  Belum ada pesan masuk.
-
-                </td>
-
-              </tr>
-
-            `;
-
-            return;
-
-          }
-
-
-          data.reverse();
-
-
-          data.forEach(function(item) {
-
-
-            const row =
-              document.createElement("tr");
-
-
-            const id =
-              document.createElement("td");
-
-            id.textContent =
-              item.id || "";
-
-
-            const nama =
-              document.createElement("td");
-
-            nama.textContent =
-              item.nama || "";
-
-
-            const email =
-              document.createElement("td");
-
-            email.textContent =
-              item.email || "";
-
-
-            const pesan =
-              document.createElement("td");
-
-            pesan.textContent =
-              item.pesan || "";
-
-
-            row.appendChild(id);
-
-            row.appendChild(nama);
-
-            row.appendChild(email);
-
-            row.appendChild(pesan);
-
-
-            table.appendChild(row);
-
-          });
-
-        })
-
-
-        .catch(function(error) {
-
-          console.error(error);
-
-
-          table.innerHTML = `
-
-            <tr>
-
-              <td colspan="4">
-
-                ❌ Gagal mengambil data dari Google Sheets.
-
-              </td>
-
-            </tr>
-
-          `;
-
-        });
-
-    }
-
-
-    /* ==========================================
-       LOGOUT ADMIN
-    ========================================== */
-
-    function logoutAdmin() {
-
-      document
-        .getElementById("adminPanel")
-        .style.display = "none";
-
-
-      document
-        .getElementById("adminLoginBox")
-        .style.display = "none";
-
-
-      document
-        .getElementById("adminPassword")
-        .value = "";
-
-
-      document
-        .getElementById("adminStatus")
-        .textContent = "";
-
-    }
+    });
 
   </script>
 
 
-  <!-- SCRIPT WEBSITE -->
-
-  <script src="script.js"></script>
-
 </body>
-
 </html>
