@@ -14,31 +14,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-  <!-- ================================
+  <!-- =================================
        LANGIT
-  ================================= -->
+  ================================== -->
 
   <div class="sky">
+
     <div class="sun"></div>
 
     <div class="cloud cloud1"></div>
+
     <div class="cloud cloud2"></div>
 
     <div class="bird">⌁</div>
+
   </div>
 
 
-  <!-- ================================
+  <!-- =================================
        NAVBAR
-  ================================= -->
+  ================================== -->
 
   <header>
 
     <div class="logo">
       🌿 Desa Mensere
     </div>
+
 
     <nav>
 
@@ -75,15 +80,20 @@
   </header>
 
 
-  <!-- ================================
-       KONTEN
-  ================================= -->
+
+  <!-- =================================
+       KONTEN UTAMA
+  ================================== -->
 
   <main class="content">
+
+
+    <!-- JUDUL -->
 
     <h1>
       📞 Kontak Desa Mensere
     </h1>
+
 
     <p class="page-description">
       Hubungi Pemerintah Desa Mensere untuk menyampaikan
@@ -91,11 +101,15 @@
     </p>
 
 
-    <!-- ================================
+
+    <!-- =================================
          INFORMASI KONTAK
-    ================================= -->
+    ================================== -->
 
     <section class="contact-info">
+
+
+      <!-- ALAMAT -->
 
       <div class="contact-box">
 
@@ -115,6 +129,9 @@
       </div>
 
 
+
+      <!-- TELEPON -->
+
       <div class="contact-box">
 
         <div class="contact-icon">
@@ -132,6 +149,9 @@
       </div>
 
 
+
+      <!-- EMAIL -->
+
       <div class="contact-box">
 
         <div class="contact-icon">
@@ -148,18 +168,22 @@
 
       </div>
 
+
     </section>
 
 
-    <!-- ================================
-         GOOGLE MAPS
-    ================================= -->
+
+    <!-- =================================
+         LOKASI
+    ================================== -->
 
     <section class="contact-location">
+
 
       <h2>
         📍 Lokasi Desa Mensere
       </h2>
+
 
       <div class="map">
 
@@ -171,14 +195,17 @@
 
       </div>
 
+
     </section>
 
 
-    <!-- ================================
-         FORM PESAN
-    ================================= -->
+
+    <!-- =================================
+         FORM KIRIM PESAN
+    ================================== -->
 
     <section class="message-box">
+
 
       <div class="message-title">
 
@@ -194,116 +221,199 @@
       </div>
 
 
+
+      <!-- FORM -->
+
       <form
-  id="guestForm"
-  action="https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec"
-  method="POST"
-  target="hiddenFrame"
->
+        id="guestForm"
 
-  <label for="nama">
-    Nama Lengkap
-  </label>
+        action="https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec"
 
-  <input
-    type="text"
-    id="nama"
-    name="nama"
-    placeholder="Masukkan nama lengkap"
-    required
-  >
+        method="POST"
+
+        target="hiddenFrame"
+      >
 
 
-  <label for="email">
-    Email
-  </label>
+        <!-- NAMA -->
 
-  <input
-    type="email"
-    id="email"
-    name="email"
-    placeholder="Masukkan email"
-    required
-  >
+        <label for="nama">
+          Nama Lengkap
+        </label>
 
 
-  <label for="pesan">
-    Pesan / Masukan
-  </label>
+        <input
+          type="text"
 
-  <textarea
-    id="pesan"
-    name="pesan"
-    placeholder="Tuliskan pesan atau masukan..."
-    required
-  ></textarea>
+          id="nama"
+
+          name="nama"
+
+          placeholder="Masukkan nama lengkap"
+
+          required
+        >
 
 
-  <button
-    type="submit"
-    id="sendButton"
-  >
-    💌 Kirim Pesan
-  </button>
 
-  <p id="statusPesan"></p>
+        <!-- EMAIL -->
 
-</form>
+        <label for="email">
+          Email
+        </label>
 
-<iframe
-  name="hiddenFrame"
-  id="hiddenFrame"
-  style="display:none;">
-</iframe>
+
+        <input
+          type="email"
+
+          id="email"
+
+          name="email"
+
+          placeholder="Masukkan email"
+
+          required
+        >
+
+
+
+        <!-- PESAN -->
+
+        <label for="pesan">
+          Pesan / Masukan
+        </label>
+
+
+        <textarea
+          id="pesan"
+
+          name="pesan"
+
+          placeholder="Tuliskan pesan atau masukan..."
+
+          required
+        ></textarea>
+
+
+
+        <!-- TOMBOL -->
+
+        <button
+          type="submit"
+
+          id="sendButton"
+        >
+          💌 Kirim Pesan
+        </button>
+
+
+
+        <!-- STATUS -->
+
+        <p id="statusPesan"></p>
+
+
+      </form>
+
+
+
+      <!-- =================================
+           IFRAME TERSEMBUNYI
+      ================================== -->
+
+      <iframe
+        name="hiddenFrame"
+
+        id="hiddenFrame"
+
+        style="display:none;"
+      ></iframe>
+
 
     </section>
 
 
-    <!-- ================================
-         TERIMA KASIH
-    ================================= -->
+
+    <!-- =================================
+         UCAPAN TERIMA KASIH
+    ================================== -->
 
     <div class="thank-you-message">
+
 
       <div class="thank-icon">
         🌿
       </div>
 
+
       <p>
         Terima kasih telah menghubungi Desa Mensere.
       </p>
 
+
     </div>
+
 
   </main>
 
 
-  <!-- ================================
+
+  <!-- =================================
        FOOTER
-  ================================= -->
+  ================================== -->
 
   <footer>
 
     <p>
+
       © <span id="tahun"></span>
+
       Desa Mensere.
+
       Semua Hak Dilindungi.
+
     </p>
 
   </footer>
 
 
+
+  <!-- =================================
+       JAVASCRIPT KONTAK
+  ================================== -->
+
   <script>
 
-    /* =================================
-       URL GOOGLE APPS SCRIPT
+    /* ================================
+       AMBIL ELEMEN
     ================================= */
 
-    const CONTACT_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
+    const form =
+      document.getElementById("guestForm");
 
 
-    /* =================================
+    const status =
+      document.getElementById("statusPesan");
+
+
+    const button =
+      document.getElementById("sendButton");
+
+
+    const iframe =
+      document.getElementById("hiddenFrame");
+
+
+    /*
+      Penanda bahwa form sudah benar-benar
+      dikirim.
+    */
+
+    let sudahKirim = false;
+
+
+
+    /* ================================
        TAHUN FOOTER
     ================================= */
 
@@ -311,207 +421,96 @@
       new Date().getFullYear();
 
 
-    /* =================================
-       FORM
+
+    /* ================================
+       SAAT FORM DIKIRIM
     ================================= */
 
-    const guestForm =
-      document.getElementById("guestForm");
-
-    const statusPesan =
-      document.getElementById("statusPesan");
-
-    const sendButton =
-      document.getElementById("sendButton");
-
-
-    guestForm.addEventListener(
+    form.addEventListener(
       "submit",
-      function(event) {
+      function () {
 
-        event.preventDefault();
+        /*
+          Jangan gunakan preventDefault()
+          karena form harus benar-benar
+          dikirim ke Google Apps Script.
+        */
 
-
-        const nama =
-          document.getElementById("nama").value.trim();
-
-        const email =
-          document.getElementById("email").value.trim();
-
-        const pesan =
-          document.getElementById("pesan").value.trim();
+        sudahKirim = true;
 
 
-        /* CEK FORM */
-
-        if (
-          nama === "" ||
-          email === "" ||
-          pesan === ""
-        ) {
-
-          statusPesan.textContent =
-            "⚠️ Silakan isi semua kolom terlebih dahulu.";
-
-          statusPesan.className = "error-message";
-
-          return;
-        }
-
-
-        /* TAMPILKAN PROSES */
-
-        statusPesan.textContent =
+        status.textContent =
           "⏳ Sedang mengirim pesan...";
 
-        statusPesan.className =
+
+        status.className =
           "loading-message";
 
-        sendButton.disabled = true;
 
-        sendButton.textContent =
+        button.disabled = true;
+
+
+        button.textContent =
           "⏳ Mengirim...";
-
-
-        /* =================================
-           DATA FORM
-        ================================= */
-
-        const formData =
-          new URLSearchParams();
-
-        formData.append(
-          "nama",
-          nama
-        );
-
-        formData.append(
-          "email",
-          email
-        );
-
-        formData.append(
-          "pesan",
-          pesan
-        );
-
-
-        /* =================================
-           KIRIM KE GOOGLE APPS SCRIPT
-        ================================= */
-
-        fetch(
-          CONTACT_SCRIPT_URL,
-          {
-            method: "POST",
-
-            mode: "no-cors",
-
-            body: formData
-          }
-        )
-
-        .then(function() {
-
-          statusPesan.textContent =
-            "✅ Pesan berhasil dikirim!";
-
-          statusPesan.className =
-            "success-message";
-
-
-          guestForm.reset();
-
-
-          sendButton.disabled = false;
-
-          sendButton.textContent =
-            "💌 Kirim Pesan";
-
-        })
-
-        .catch(function(error) {
-
-          console.error(error);
-
-          statusPesan.textContent =
-            "❌ Pesan gagal dikirim. Silakan coba lagi.";
-
-          statusPesan.className =
-            "error-message";
-
-
-          sendButton.disabled = false;
-
-          sendButton.textContent =
-            "💌 Kirim Pesan";
-
-        });
 
       }
     );
 
+
+
+    /* ================================
+       SETELAH IFRAME SELESAI MEMUAT
+    ================================= */
+
+    iframe.addEventListener(
+      "load",
+      function () {
+
+
+        /*
+          Hanya jalankan jika form
+          memang sudah dikirim.
+        */
+
+        if (!sudahKirim) {
+          return;
+        }
+
+
+        status.textContent =
+          "✅ Pesan berhasil dikirim!";
+
+
+        status.className =
+          "success-message";
+
+
+        button.disabled = false;
+
+
+        button.textContent =
+          "💌 Kirim Pesan";
+
+
+        form.reset();
+
+
+        sudahKirim = false;
+
+      }
+    );
+
+
   </script>
 
 
-  <!-- SCRIPT GLOBAL -->
+
+  <!-- =================================
+       SCRIPT WEBSITE
+  ================================== -->
 
   <script src="script.js"></script>
 
-  <form
-  id="guestForm"
-  action="https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec"
-  method="POST"
-  target="hiddenFrame"
->
-
-  <label for="nama">Nama Lengkap</label>
-
-  <input
-    type="text"
-    id="nama"
-    name="nama"
-    placeholder="Masukkan nama lengkap"
-    required
-  >
-
-  <label for="email">Email</label>
-
-  <input
-    type="email"
-    id="email"
-    name="email"
-    placeholder="Masukkan email"
-    required
-  >
-
-  <label for="pesan">Pesan / Masukan</label>
-
-  <textarea
-    id="pesan"
-    name="pesan"
-    placeholder="Tuliskan pesan atau masukan..."
-    required
-  ></textarea>
-
-  <button
-    type="submit"
-    id="sendButton"
-  >
-    💌 Kirim Pesan
-  </button>
-
-  <p id="statusPesan"></p>
-
-</form>
-
-
-<!-- WAJIB ADA -->
-<iframe
-  name="hiddenFrame"
-  id="hiddenFrame"
-  style="display:none;">
-</iframe>
 
 </body>
 
