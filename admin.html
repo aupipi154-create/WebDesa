@@ -266,28 +266,26 @@ function loadMessages() {
   const table =
     document.getElementById("messageTable");
 
-
   loading.textContent =
-    "Memuat data...";
-
+    "⏳ Memuat data...";
 
   table.innerHTML = "";
 
 
-  fetch(ADMIN_SCRIPT_URL)
+  const callbackName =
+    "adminCallback_" + Date.now();
 
-    .then(function(response) {
 
-      return response.json();
+  window[callbackName] = function(data) {
 
-    })
-
-    .then(function(data) {
+    try {
 
       loading.textContent = "";
 
-
-      if (!data || data.length === 0) {
+      if (
+        !Array.isArray(data) ||
+        data.length === 0
+      ) {
 
         table.innerHTML = `
           <tr>
@@ -298,8 +296,10 @@ function loadMessages() {
         `;
 
         return;
-
       }
+
+
+      data.reverse();
 
 
       data.forEach(function(item) {
@@ -308,35 +308,95 @@ function loadMessages() {
           document.createElement("tr");
 
 
-        row.innerHTML = `
+        const id =
+          document.createElement("td");
 
-          <td>${item.id || ""}</td>
+        id.textContent =
+          item.id || "";
 
-          <td>${item.nama || ""}</td>
 
-          <td>${item.email || ""}</td>
+        const nama =
+          document.createElement("td");
 
-          <td>${item.pesan || ""}</td>
+        nama.textContent =
+          item.nama || "";
 
-        `;
 
+        const email =
+          document.createElement("td");
+
+        email.textContent =
+          item.email || "";
+
+
+        const pesan =
+          document.createElement("td");
+
+        pesan.textContent =
+          item.pesan || "";
+
+
+        row.appendChild(id);
+        row.appendChild(nama);
+        row.appendChild(email);
+        row.appendChild(pesan);
 
         table.appendChild(row);
 
       });
 
-    })
 
-    .catch(function(error) {
+    } catch (error) {
 
       console.error(error);
 
       loading.textContent =
-        "❌ Gagal mengambil data.";
+        "❌ Gagal menampilkan data.";
 
-    });
+    }
 
-}
+
+    delete window[callbackName];
+
+    const oldScript =
+      document.getElementById(callbackName);
+
+    if (oldScript) {
+      oldScript.remove();
+    }
+
+  };
+
+
+  const script =
+    document.createElement("script");
+
+  script.id =
+    callbackName;
+
+  script.src =
+    ADMIN_SCRIPT_URL +
+    "?callback=" +
+    callbackName +
+    "&t=" +
+    Date.now();
+
+
+  script.onerror = function() {
+
+    loading.textContent =
+      "❌ Gagal mengambil data.";
+
+    delete window[callbackName];
+
+    script.remove();
+
+  };
+
+
+  document.body.appendChild(script);
+
+  }
 
 
 /* ENTER UNTUK LOGIN */
