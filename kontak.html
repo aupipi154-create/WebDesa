@@ -86,6 +86,51 @@
 
   </div>
 
+    <!-- FORM PESAN PENGUNJUNG -->
+  <section class="content">
+
+    <h2>💬 Kirim Pesan</h2>
+
+    <form id="guestForm" class="guest-form">
+
+      <div class="form-group">
+        <label for="nama">Nama</label>
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Masukkan nama"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Masukkan email"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="pesan">Pesan</label>
+        <textarea
+          id="pesan"
+          name="pesan"
+          rows="5"
+          placeholder="Tulis pesan..."
+          required></textarea>
+      </div>
+
+      <button type="submit">📨 Kirim Pesan</button>
+
+      <p id="statusPesan"></p>
+
+    </form>
+
+  </section>
+
 </main>
 
 <footer>

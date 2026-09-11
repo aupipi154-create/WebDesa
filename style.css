@@ -679,3 +679,56 @@ footer {
   }
 
 }
+/* FORM PESAN PENGUNJUNG */
+
+.guest-form {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+.guest-form input,
+.guest-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.guest-form textarea {
+  resize: vertical;
+}
+
+.guest-form button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #d88a9a;
+  color: white;
+}
+
+.guest-form button:hover {
+  opacity: 0.85;
+}
+
+#statusPesan {
+  margin-top: 15px;
+  font-weight: bold;
+}
