@@ -3,66 +3,109 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Kontak - Desa Mensere</title>
 
-  <!-- CSS UTAMA -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ==============================
-       NAVBAR
-  =============================== -->
+  <!-- ================================
+       LANGIT
+  ================================= -->
 
-  <header class="navbar">
+  <div class="sky">
+    <div class="sun"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="bird">⌁</div>
+  </div>
+
+
+  <!-- ================================
+       NAVBAR
+  ================================= -->
+
+  <header>
 
     <div class="logo">
       🌿 Desa Mensere
     </div>
 
     <nav>
-      <a href="index.html">Beranda</a>
-      <a href="profil.html">Profil</a>
-      <a href="pendidikan.html">Pendidikan</a>
-      <a href="fasilitas.html">Fasilitas</a>
-      <a href="budaya.html">Budaya</a>
-      <a href="galeri.html">Galeri</a>
-      <a href="kontak.html">Kontak</a>
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="profil.html">
+        Profil
+      </a>
+
+      <a href="pendidikan.html">
+        Pendidikan
+      </a>
+
+      <a href="fasilitas.html">
+        Fasilitas
+      </a>
+
+      <a href="budaya.html">
+        Budaya
+      </a>
+
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="kontak.html" class="active">
+        Kontak
+      </a>
+
     </nav>
 
   </header>
 
 
-  <!-- ==============================
-       JUDUL HALAMAN
-  =============================== -->
+  <!-- ================================
+       KONTEN
+  ================================= -->
 
-  <section class="page-header">
+  <main class="content">
 
-    <h1>📞 Kontak Desa Mensere</h1>
+    <h1>
+      📞 Kontak Desa Mensere
+    </h1>
 
-    <p>
-      Hubungi Pemerintah Desa Mensere
+    <p class="page-description">
+      Hubungi Pemerintah Desa Mensere untuk menyampaikan
+      informasi, pertanyaan, pesan, atau masukan.
     </p>
 
-  </section>
 
-
-  <main class="container">
-
-
-    <!-- ==============================
+    <!-- ================================
          INFORMASI KONTAK
-    =============================== -->
+    ================================= -->
 
     <section class="contact-info">
 
-      <div class="info-box">
+      <div class="contact-box">
 
-        <h3>📍 Alamat</h3>
+        <div class="contact-icon">
+          📍
+        </div>
+
+        <h2>
+          Alamat Desa
+        </h2>
 
         <p>
           Desa Mensere, Kecamatan Tebas,
@@ -72,20 +115,32 @@
       </div>
 
 
-      <div class="info-box">
+      <div class="contact-box">
 
-        <h3>📱 Telepon</h3>
+        <div class="contact-icon">
+          📱
+        </div>
+
+        <h2>
+          Telepon
+        </h2>
 
         <p>
-          0812-3456-7890
+          08xxxxxxxxx
         </p>
 
       </div>
 
 
-      <div class="info-box">
+      <div class="contact-box">
 
-        <h3>📧 Email</h3>
+        <div class="contact-icon">
+          📧
+        </div>
+
+        <h2>
+          Email
+        </h2>
 
         <p>
           desamensere@gmail.com
@@ -96,15 +151,17 @@
     </section>
 
 
-    <!-- ==============================
-         PETA
-    =============================== -->
+    <!-- ================================
+         GOOGLE MAPS
+    ================================= -->
 
-    <section class="contact-map">
+    <section class="contact-location">
 
-      <h2>📍 Lokasi Desa Mensere</h2>
+      <h2>
+        📍 Lokasi Desa Mensere
+      </h2>
 
-      <div class="map-wrapper">
+      <div class="map">
 
         <iframe
           src="https://www.google.com/maps?q=Desa%20Mensere%20Sambas%20Kalimantan%20Barat&output=embed"
@@ -117,28 +174,27 @@
     </section>
 
 
-    <!-- ==============================
-         KIRIM PESAN
-    =============================== -->
+    <!-- ================================
+         FORM PESAN
+    ================================= -->
 
     <section class="message-box">
 
       <div class="message-title">
 
-        <h2>💌 Kirim Pesan</h2>
+        <h2>
+          💌 Kirim Pesan
+        </h2>
 
         <p>
-          Silakan isi formulir di bawah
-          untuk menyampaikan pesan atau masukan.
+          Silakan isi formulir di bawah untuk
+          menyampaikan pesan atau masukan.
         </p>
 
       </div>
 
 
       <form id="guestForm">
-
-
-        <!-- NAMA -->
 
         <label for="nama">
           Nama Lengkap
@@ -147,11 +203,11 @@
         <input
           type="text"
           id="nama"
+          name="nama"
           placeholder="Masukkan nama lengkap"
-          required>
+          required
+        >
 
-
-        <!-- EMAIL -->
 
         <label for="email">
           Email
@@ -160,11 +216,11 @@
         <input
           type="email"
           id="email"
+          name="email"
           placeholder="Masukkan email"
-          required>
+          required
+        >
 
-
-        <!-- PESAN -->
 
         <label for="pesan">
           Pesan / Masukan
@@ -172,33 +228,30 @@
 
         <textarea
           id="pesan"
+          name="pesan"
           placeholder="Tuliskan pesan atau masukan..."
-          required></textarea>
+          required
+        ></textarea>
 
-
-        <!-- TOMBOL -->
 
         <button
           type="submit"
-          class="send-message-btn">
-
+          id="sendButton"
+        >
           💌 Kirim Pesan
-
         </button>
 
 
-        <!-- STATUS -->
-
-        <p id="Pesan anda sudah terkirim. Terima kasih"></p>
+        <p id="statusPesan"></p>
 
       </form>
 
     </section>
 
 
-    <!-- ==============================
-         UCAPAN TERIMA KASIH
-    =============================== -->
+    <!-- ================================
+         TERIMA KASIH
+    ================================= -->
 
     <div class="thank-you-message">
 
@@ -212,13 +265,12 @@
 
     </div>
 
-
   </main>
 
 
-  <!-- ==============================
+  <!-- ================================
        FOOTER
-  =============================== -->
+  ================================= -->
 
   <footer>
 
@@ -231,27 +283,10 @@
   </footer>
 
 
-  <!-- ==============================
-       TOMBOL KEMBALI KE ATAS
-  =============================== -->
-
-  <button
-    id="topButton"
-    title="Kembali ke atas">
-
-    ↑
-
-  </button>
-
-
-  <!-- ==============================
-       JAVASCRIPT
-  =============================== -->
-
   <script>
 
     /* =================================
-       GOOGLE APPS SCRIPT
+       URL GOOGLE APPS SCRIPT
     ================================= */
 
     const CONTACT_SCRIPT_URL =
@@ -267,7 +302,7 @@
 
 
     /* =================================
-       FORM PESAN
+       FORM
     ================================= */
 
     const guestForm =
@@ -276,165 +311,143 @@
     const statusPesan =
       document.getElementById("statusPesan");
 
-
-    guestForm.addEventListener("submit", function(event) {
-
-      event.preventDefault();
+    const sendButton =
+      document.getElementById("sendButton");
 
 
-      /* AMBIL DATA */
+    guestForm.addEventListener(
+      "submit",
+      function(event) {
 
-      const nama =
-        document.getElementById("nama").value.trim();
-
-      const email =
-        document.getElementById("email").value.trim();
-
-      const pesan =
-        document.getElementById("pesan").value.trim();
+        event.preventDefault();
 
 
-      /* CEK DATA */
+        const nama =
+          document.getElementById("nama").value.trim();
 
-      if (
-        nama === "" ||
-        email === "" ||
-        pesan === ""
-      ) {
+        const email =
+          document.getElementById("email").value.trim();
+
+        const pesan =
+          document.getElementById("pesan").value.trim();
+
+
+        /* CEK FORM */
+
+        if (
+          nama === "" ||
+          email === "" ||
+          pesan === ""
+        ) {
+
+          statusPesan.textContent =
+            "⚠️ Silakan isi semua kolom terlebih dahulu.";
+
+          statusPesan.className = "error-message";
+
+          return;
+        }
+
+
+        /* TAMPILKAN PROSES */
 
         statusPesan.textContent =
-          "⚠️ Silakan isi semua kolom terlebih dahulu.";
+          "⏳ Sedang mengirim pesan...";
 
-        statusPesan.style.color =
-          "#d16d88";
+        statusPesan.className =
+          "loading-message";
 
-        return;
-      }
+        sendButton.disabled = true;
 
-
-      /* SEDANG MENGIRIM */
-
-      statusPesan.textContent =
-        "⏳ Sedang mengirim pesan...";
-
-      statusPesan.style.color =
-        "#669e59";
+        sendButton.textContent =
+          "⏳ Mengirim...";
 
 
-      /* KIRIM KE GOOGLE SHEETS */
+        /* =================================
+           DATA FORM
+        ================================= */
 
-      fetch(CONTACT_SCRIPT_URL, {
+        const formData =
+          new URLSearchParams();
 
-        method: "POST",
+        formData.append(
+          "nama",
+          nama
+        );
 
-        body: JSON.stringify({
+        formData.append(
+          "email",
+          email
+        );
 
-          nama: nama,
-          email: email,
-          pesan: pesan
-
-        })
-
-      })
-
-      .then(function(response) {
-
-        return response.json();
-
-      })
-
-      .then(function(data) {
+        formData.append(
+          "pesan",
+          pesan
+        );
 
 
-        /* BERHASIL */
+        /* =================================
+           KIRIM KE GOOGLE APPS SCRIPT
+        ================================= */
 
-        if (data.status === "success") {
+        fetch(
+          CONTACT_SCRIPT_URL,
+          {
+            method: "POST",
+
+            mode: "no-cors",
+
+            body: formData
+          }
+        )
+
+        .then(function() {
 
           statusPesan.textContent =
             "✅ Pesan berhasil dikirim!";
 
-          statusPesan.style.color =
-            "#4d8145";
+          statusPesan.className =
+            "success-message";
 
-
-          /* KOSONGKAN FORM */
 
           guestForm.reset();
 
-        }
 
+          sendButton.disabled = false;
 
-        /* GAGAL */
+          sendButton.textContent =
+            "💌 Kirim Pesan";
 
-        else {
+        })
+
+        .catch(function(error) {
+
+          console.error(error);
 
           statusPesan.textContent =
             "❌ Pesan gagal dikirim. Silakan coba lagi.";
 
-          statusPesan.style.color =
-            "#d16d88";
-
-        }
-
-      })
+          statusPesan.className =
+            "error-message";
 
 
-      /* ERROR */
+          sendButton.disabled = false;
 
-      .catch(function(error) {
+          sendButton.textContent =
+            "💌 Kirim Pesan";
 
-        console.error(error);
-
-        statusPesan.textContent =
-          "❌ Terjadi kesalahan saat mengirim pesan.";
-
-        statusPesan.style.color =
-          "#d16d88";
-
-      });
-
-    });
-
-
-    /* =================================
-       TOMBOL KEMBALI KE ATAS
-    ================================= */
-
-    const topButton =
-      document.getElementById("topButton");
-
-
-    window.addEventListener("scroll", function() {
-
-      if (window.scrollY > 400) {
-
-        topButton.classList.add("visible");
+        });
 
       }
-
-      else {
-
-        topButton.classList.remove("visible");
-
-      }
-
-    });
-
-
-    topButton.addEventListener("click", function() {
-
-      window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-      });
-
-    });
+    );
 
   </script>
 
 
+  <!-- SCRIPT GLOBAL -->
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>

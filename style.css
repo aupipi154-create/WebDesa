@@ -673,12 +673,25 @@ nav a.active {
    KONTAK
 ========================================= */
 
+.contact-info {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto 55px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
 .contact-box {
   width: 100%;
 
-  max-width: 850px;
-
-  margin: 30px auto;
+  margin: 0;
 
   padding: 30px;
 
@@ -688,20 +701,453 @@ nav a.active {
 
   border-radius: 20px;
 
+  text-align: center;
+
   box-shadow:
-    0 10px 25px rgba(100, 50, 60, .08);
+    0 10px 25px
+    rgba(100, 50, 60, .08);
+
+  transition: .3s;
 }
+
+
+.contact-box:hover {
+  transform: translateY(-7px);
+}
+
+
+.contact-icon {
+  font-size: 45px;
+
+  margin-bottom: 12px;
+}
+
 
 .contact-box h2 {
   color: #2c653f;
+
+  margin-bottom: 10px;
+
+  font-size: 22px;
 }
+
 
 .contact-box p {
   color: #637467;
 
-  margin: 10px 0;
+  margin: 0;
+
+  font-size: 15px;
 }
 
+
+/* =========================================
+   LOKASI
+========================================= */
+
+.contact-location {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto 50px;
+}
+
+
+.contact-location h2 {
+  color: #285b3a;
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  font-size: 30px;
+}
+
+
+.contact-location .map {
+  width: 100%;
+
+  max-width: 1100px;
+
+  height: 450px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border: 5px solid #e5b8c5;
+}
+
+
+.contact-location .map iframe {
+  width: 100%;
+
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* =========================================
+   FORM PESAN
+========================================= */
+
+.message-box {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 45px;
+
+  background: #fff8fa;
+
+  border: 2px solid #e5b8c5;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(80, 60, 60, .10);
+}
+
+
+.message-title {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+
+.message-title h2 {
+  margin: 0 0 10px;
+
+  color: #285c3c;
+
+  font-size: 36px;
+}
+
+
+.message-title p {
+  color: #6f6f6f;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+#guestForm {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+#guestForm label {
+  margin-top: 18px;
+
+  margin-bottom: 8px;
+
+  color: #315b3d;
+
+  font-weight: bold;
+
+  font-size: 16px;
+}
+
+
+#guestForm input,
+#guestForm textarea {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  background: #fff;
+
+  border: 2px solid #e5cbd2;
+
+  border-radius: 16px;
+
+  color: #333;
+
+  font-size: 16px;
+
+  font-family: Arial, sans-serif;
+
+  outline: none;
+
+  transition: .3s;
+}
+
+
+#guestForm input:focus,
+#guestForm textarea:focus {
+  border-color: #669e59;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(102, 158, 89, .12);
+}
+
+
+#guestForm textarea {
+  min-height: 150px;
+
+  resize: vertical;
+}
+
+
+#guestForm button {
+  width: fit-content;
+
+  margin-top: 22px;
+
+  padding: 14px 28px;
+
+  background: #669e59;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+
+#guestForm button:hover {
+  background: #d16d88;
+
+  transform: translateY(-3px);
+}
+
+
+#guestForm button:disabled {
+  opacity: .7;
+
+  cursor: wait;
+
+  transform: none;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+#statusPesan {
+  min-height: 25px;
+
+  margin-top: 18px;
+
+  text-align: center;
+
+  font-weight: bold;
+}
+
+
+.success-message {
+  color: #4d8145;
+}
+
+
+.error-message {
+  color: #d16d88;
+}
+
+
+.loading-message {
+  color: #669e59;
+}
+
+
+/* =========================================
+   TERIMA KASIH
+========================================= */
+
+.thank-you-message {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 25px auto 0;
+
+  padding: 25px;
+
+  text-align: center;
+
+  background: #e2f1d8;
+
+  border: 1px solid #c5dfb9;
+
+  border-radius: 20px;
+
+  color: #4d8145;
+
+  font-weight: bold;
+}
+
+
+.thank-icon {
+  font-size: 35px;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 701px)
+       and (max-width: 999px) {
+
+  .contact-info {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .contact-location h2 {
+    font-size: 28px;
+  }
+
+  .contact-location .map {
+    height: 420px;
+  }
+
+  .message-box {
+    padding: 35px;
+  }
+}
+
+
+/* =========================================
+   HP
+========================================= */
+
+@media (max-width: 700px) {
+
+  .contact-info {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 40px;
+  }
+
+
+  .contact-box {
+    padding: 25px 20px;
+  }
+
+
+  .contact-icon {
+    font-size: 40px;
+  }
+
+
+  .contact-box h2 {
+    font-size: 20px;
+  }
+
+
+  .contact-location h2 {
+    text-align: left;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+  }
+
+
+  .contact-location .map {
+    height: 350px;
+
+    border-width: 3px;
+  }
+
+
+  .message-box {
+    padding: 25px 20px;
+
+    border-radius: 22px;
+  }
+
+
+  .message-title h2 {
+    font-size: 28px;
+  }
+
+
+  .message-title p {
+    font-size: 14px;
+  }
+
+
+  #guestForm input,
+  #guestForm textarea {
+    font-size: 15px;
+
+    padding: 13px 14px;
+
+    border-radius: 13px;
+  }
+
+
+  #guestForm button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================
+   HP KECIL
+========================================= */
+
+@media (max-width: 400px) {
+
+  .contact-box {
+    padding: 22px 16px;
+  }
+
+
+  .contact-location h2 {
+    font-size: 22px;
+  }
+
+
+  .contact-location .map {
+    height: 300px;
+  }
+
+
+  .message-box {
+    padding: 20px 15px;
+  }
+
+
+  .message-title h2 {
+    font-size: 25px;
+  }
+
+}
 
 /* =========================================
    FORM PESAN
