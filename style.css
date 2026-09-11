@@ -1138,3 +1138,537 @@ footer {
   }
 
 }
+/* =================================
+   BUKU TAMU
+================================= */
+
+.message-box {
+
+  max-width: 900px;
+
+  margin: 60px auto 0;
+
+  padding: 50px;
+
+  background: #fff8fa;
+
+  border: 1px solid #ead5da;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 10px 30px rgba(80, 60, 60, 0.10);
+
+}
+
+
+/* JUDUL */
+
+.message-title {
+
+  text-align: center;
+
+  margin-bottom: 40px;
+
+}
+
+.message-title span {
+
+  display: inline-block;
+
+  padding: 7px 18px;
+
+  border-radius: 30px;
+
+  background: #dcefd4;
+
+  color: #4d8145;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+}
+
+.message-title h2 {
+
+  margin-top: 18px;
+
+  font-size: 38px;
+
+  color: #263238;
+
+}
+
+.message-title p {
+
+  color: #777;
+
+  font-size: 17px;
+
+}
+
+
+/* FORM */
+
+.message-box form {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+.message-box label {
+
+  margin-top: 18px;
+
+  margin-bottom: 8px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  color: #374151;
+
+}
+
+.message-box input,
+.message-box textarea {
+
+  width: 100%;
+
+  padding: 17px 20px;
+
+  border: 2px solid #dddde1;
+
+  border-radius: 22px;
+
+  background: white;
+
+  font-size: 16px;
+
+  font-family: inherit;
+
+  outline: none;
+
+  transition: 0.3s;
+
+}
+
+.message-box textarea {
+
+  resize: vertical;
+
+  min-height: 140px;
+
+}
+
+.message-box input:focus,
+.message-box textarea:focus {
+
+  border-color: #669e59;
+
+  box-shadow:
+    0 0 0 4px rgba(102,158,89,0.10);
+
+}
+
+
+/* TOMBOL KIRIM */
+
+.send-message-btn {
+
+  margin-top: 25px;
+
+  padding: 17px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #669e59;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.send-message-btn:hover {
+
+  background: #4d8145;
+
+  transform: translateY(-2px);
+
+}
+
+
+/* STATUS */
+
+#statusPesan {
+
+  margin-top: 15px;
+
+  padding: 10px;
+
+  text-align: center;
+
+  font-weight: bold;
+
+  border-radius: 10px;
+
+}
+
+
+/* =================================
+   AKSES ADMIN
+================================= */
+
+.admin-access {
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 0 50px 40px;
+
+  background: #fff8fa;
+
+  border-radius: 0 0 30px 30px;
+
+}
+
+
+/* GARIS */
+
+.admin-divider {
+
+  height: 1px;
+
+  background: #e6e0e2;
+
+  margin-bottom: 25px;
+
+}
+
+
+/* TOMBOL AKSES */
+
+.admin-access-btn {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 18px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #6b7280;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.admin-access-btn:hover {
+
+  color: #669e59;
+
+}
+
+
+/* =================================
+   LOGIN ADMIN
+================================= */
+
+.admin-login-box {
+
+  max-width: 500px;
+
+  margin: 30px auto;
+
+  padding: 35px;
+
+  background: white;
+
+  border: 1px solid #e5d4d9;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+.admin-login-box h2 {
+
+  color: #3f603b;
+
+  margin-bottom: 10px;
+
+}
+
+.admin-login-box p {
+
+  color: #777;
+
+}
+
+.admin-login-box input {
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: 2px solid #ddd;
+
+  border-radius: 15px;
+
+  font-size: 16px;
+
+  outline: none;
+
+}
+
+.admin-login-box button {
+
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: #669e59;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+}
+
+
+/* =================================
+   PANEL ADMIN
+================================= */
+
+.admin-panel {
+
+  max-width: 1100px;
+
+  margin: 30px auto;
+
+  padding: 30px;
+
+  background: white;
+
+  border: 1px solid #e5d4d9;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+.admin-panel-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+}
+
+.admin-panel-header h2 {
+
+  color: #3f603b;
+
+}
+
+.admin-panel-header p {
+
+  color: #777;
+
+}
+
+.logout-admin {
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #d16d88;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+}
+
+
+/* TABLE */
+
+.admin-table-wrapper {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+}
+
+.admin-table {
+
+  width: 100%;
+
+  min-width: 700px;
+
+  border-collapse: collapse;
+
+}
+
+.admin-table th {
+
+  padding: 14px;
+
+  background: #669e59;
+
+  color: white;
+
+  text-align: left;
+
+}
+
+.admin-table td {
+
+  padding: 14px;
+
+  border-bottom: 1px solid #eee;
+
+  vertical-align: top;
+
+}
+
+.admin-table tr:hover td {
+
+  background: #fff4f7;
+
+}
+
+
+/* =================================
+   HP
+================================= */
+
+@media (max-width: 700px) {
+
+  .message-box {
+
+    margin: 30px 15px 0;
+
+    padding: 30px 20px;
+
+    border-radius: 25px;
+
+  }
+
+  .message-title h2 {
+
+    font-size: 29px;
+
+  }
+
+  .message-title p {
+
+    font-size: 15px;
+
+  }
+
+  .admin-access {
+
+    margin: 0 15px;
+
+    padding: 0 20px 25px;
+
+  }
+
+  .admin-access-btn {
+
+    font-size: 16px;
+
+  }
+
+  .admin-login-box {
+
+    margin: 25px 15px;
+
+    padding: 25px 20px;
+
+  }
+
+  .admin-panel {
+
+    margin: 25px 15px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+  }
+
+  .admin-panel-header {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+  .logout-admin {
+
+    width: 100%;
+
+  }
+
+}
