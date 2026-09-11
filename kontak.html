@@ -147,16 +147,13 @@
 
   <!-- FORM PESAN -->
 
-  <section class="content">
+  <section>
 
-    <h2>
-      💬 Kirim Pesan
-    </h2>
+  <h2>
+    💬 Kirim Pesan
+  </h2>
 
-
-    <form
-      id="guestForm"
-      class="guest-form">
+  <form id="guestForm" class="guest-form">
 
 
       <div class="form-group">
@@ -269,22 +266,18 @@
 
 <script src="script.js"></script>
 
-
-
 <script>
 
-
-/* URL GOOGLE APPS SCRIPT */
-
 const CONTACT_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
+"https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
 
 
-
-/* FORM PESAN */
+/* =========================
+   FORM KIRIM PESAN
+========================= */
 
 const guestForm =
-  document.getElementById("guestForm");
+document.getElementById("guestForm");
 
 
 if (guestForm) {
@@ -295,22 +288,31 @@ if (guestForm) {
 
       event.preventDefault();
 
-
       const nama =
-        document.getElementById("nama").value;
+        document.getElementById("nama").value.trim();
 
       const email =
-        document.getElementById("email").value;
+        document.getElementById("email").value.trim();
 
       const pesan =
-        document.getElementById("pesan").value;
+        document.getElementById("pesan").value.trim();
 
       const status =
         document.getElementById("statusPesan");
 
 
+      if (!nama || !email || !pesan) {
+
+        status.textContent =
+          "❌ Semua kolom harus diisi.";
+
+        return;
+
+      }
+
+
       status.textContent =
-        "Mengirim pesan...";
+        "⏳ Mengirim pesan...";
 
 
       fetch(CONTACT_SCRIPT_URL, {
@@ -339,18 +341,16 @@ if (guestForm) {
       .then(function() {
 
         status.textContent =
-          "Pesan Anda berhasil dikirim.";
+          "✅ Pesan berhasil dikirim.";
 
         guestForm.reset();
 
-
-        /* MUAT ULANG PESAN */
 
         setTimeout(function() {
 
           loadVisitorMessages();
 
-        }, 1000);
+        }, 1500);
 
       })
 
@@ -359,17 +359,20 @@ if (guestForm) {
         console.error(error);
 
         status.textContent =
-          "Pesan gagal dikirim. Silakan coba lagi.";
+          "❌ Pesan gagal dikirim.";
 
       });
 
-    });
+    }
+
+  );
 
 }
 
 
-
-/* MENAMPILKAN PESAN */
+/* =========================
+   LOAD PESAN DENGAN JSONP
+========================= */
 
 function loadVisitorMessages() {
 
@@ -384,91 +387,124 @@ function loadVisitorMessages() {
 
   container.innerHTML = `
     <p class="visitor-loading">
-      Memuat pesan...
+      ⏳ Memuat pesan...
     </p>
   `;
 
 
-  fetch(CONTACT_SCRIPT_URL)
-
-    .then(function(response) {
-
-      return response.json();
-
-    })
-
-    .then(function(data) {
+  const callbackName =
+    "visitorCallback_" +
+    Date.now();
 
 
-      container.innerHTML = "";
+  window[callbackName] =
+    function(data) {
+
+      try {
+
+        container.innerHTML = "";
 
 
-      if (
-        !data ||
-        data.length === 0
-      ) {
+        if (
+          !Array.isArray(data) ||
+          data.length === 0
+        ) {
+
+          container.innerHTML = `
+            <div class="visitor-empty">
+              <p>
+                Belum ada pesan pengunjung.
+              </p>
+            </div>
+          `;
+
+          return;
+
+        }
+
+
+        /* Pesan terbaru di atas */
+
+        data.reverse();
+
+
+        data.forEach(function(item) {
+
+          const card =
+            document.createElement("div");
+
+          card.className =
+            "visitor-card";
+
+
+          const nama =
+            document.createElement("h3");
+
+          nama.textContent =
+            "👤 " +
+            (item.nama || "Pengunjung");
+
+
+          const pesan =
+            document.createElement("p");
+
+          pesan.textContent =
+            item.pesan || "";
+
+
+          card.appendChild(nama);
+
+          card.appendChild(pesan);
+
+
+          container.appendChild(card);
+
+        });
+
+
+      } catch (error) {
+
+        console.error(error);
 
         container.innerHTML = `
           <div class="visitor-empty">
             <p>
-              Belum ada pesan pengunjung.
+              ❌ Pesan belum dapat dimuat.
             </p>
           </div>
         `;
 
-        return;
-
       }
 
 
-      /* PESAN TERBARU DI ATAS */
+      delete window[callbackName];
 
-      data.reverse();
+      const script =
+        document.getElementById(callbackName);
 
+      if (script) {
+        script.remove();
+      }
 
-      data.forEach(function(item) {
-
-
-        const card =
-          document.createElement("div");
-
-
-        card.className =
-          "visitor-card";
+    };
 
 
-        const nama =
-          document.createElement("h3");
+  const script =
+    document.createElement("script");
+
+  script.id =
+    callbackName;
+
+  script.src =
+    CONTACT_SCRIPT_URL +
+    "?callback=" +
+    callbackName +
+    "&t=" +
+    Date.now();
 
 
-        nama.textContent =
-          "👤 " + (item.nama || "Pengunjung");
-
-
-        const pesan =
-          document.createElement("p");
-
-
-        pesan.textContent =
-          item.pesan || "";
-
-
-        card.appendChild(nama);
-
-        card.appendChild(pesan);
-
-
-        container.appendChild(card);
-
-      });
-
-    })
-
-
-    .catch(function(error) {
-
-      console.error(error);
-
+  script.onerror =
+    function() {
 
       container.innerHTML = `
         <div class="visitor-empty">
@@ -478,13 +514,21 @@ function loadVisitorMessages() {
         </div>
       `;
 
-    });
+      delete window[callbackName];
+
+      script.remove();
+
+    };
+
+
+  document.body.appendChild(script);
 
 }
 
 
-
-/* LOAD PESAN SAAT HALAMAN DIBUKA */
+/* =========================
+   LOAD SAAT HALAMAN DIBUKA
+========================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -495,8 +539,7 @@ document.addEventListener(
   }
 );
 
-
-</script>
+          </script>      
 
 
 </body>
