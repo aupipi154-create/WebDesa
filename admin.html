@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Desa Mensere</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    🌿 Admin Desa Mensere
+  </div>
+
+  <nav>
+
+    <a href="index.html">
+      Beranda
+    </a>
+
+    <a href="kontak.html">
+      Kontak
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="admin-content">
+
+
+  <!-- LOGIN -->
+
+  <div
+    id="loginBox"
+    class="admin-box">
+
+    <h1>
+      🔐 Admin Desa
+    </h1>
+
+    <p>
+      Silakan masuk untuk melihat pesan pengunjung.
+    </p>
+
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Masukkan password">
+
+    <button
+      onclick="loginAdmin()"
+      class="admin-button">
+
+      🔑 Masuk
+
+    </button>
+
+    <p
+      id="loginStatus"
+      class="admin-status">
+    </p>
+
+  </div>
+
+
+  <!-- DASHBOARD -->
+
+  <div
+    id="adminPanel"
+    class="admin-panel"
+    style="display:none;">
+
+    <div class="admin-header">
+
+      <div>
+
+        <h1>
+          📋 Pesan Pengunjung
+        </h1>
+
+        <p>
+          Data dari Google Sheet Desa Mensere
+        </p>
+
+      </div>
+
+      <button
+        onclick="logoutAdmin()"
+        class="logout-button">
+
+        Keluar
+
+      </button>
+
+    </div>
+
+
+    <button
+      onclick="loadMessages()"
+      class="admin-button">
+
+      🔄 Muat Ulang Data
+
+    </button>
+
+
+    <div
+      id="loading"
+      class="admin-status">
+
+      Memuat data...
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+
+            <th>Nama</th>
+
+            <th>Email</th>
+
+            <th>Pesan</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="messageTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © <span class="current-year"></span>
+    Desa Mensere
+  </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+/* URL GOOGLE APPS SCRIPT */
+
+const ADMIN_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
+
+/* PASSWORD ADMIN */
+
+const ADMIN_PASSWORD = "desa1234";
+
+
+/* LOGIN */
+
+function loginAdmin() {
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  const status =
+    document.getElementById("loginStatus");
+
+
+  if (password === ADMIN_PASSWORD) {
+
+    document.getElementById("loginBox").style.display =
+      "none";
+
+    document.getElementById("adminPanel").style.display =
+      "block";
+
+    loadMessages();
+
+  } else {
+
+    status.textContent =
+      "❌ Password salah.";
+
+  }
+
+}
+
+
+/* LOGOUT */
+
+function logoutAdmin() {
+
+  document.getElementById("adminPanel").style.display =
+    "none";
+
+  document.getElementById("loginBox").style.display =
+    "block";
+
+  document.getElementById("adminPassword").value = "";
+
+}
+
+
+/* AMBIL DATA */
+
+function loadMessages() {
+
+  const loading =
+    document.getElementById("loading");
+
+  const table =
+    document.getElementById("messageTable");
+
+
+  loading.textContent =
+    "Memuat data...";
+
+
+  table.innerHTML = "";
+
+
+  fetch(ADMIN_SCRIPT_URL)
+
+    .then(function(response) {
+
+      return response.json();
+
+    })
+
+    .then(function(data) {
+
+      loading.textContent = "";
+
+
+      if (!data || data.length === 0) {
+
+        table.innerHTML = `
+          <tr>
+            <td colspan="4">
+              Belum ada pesan.
+            </td>
+          </tr>
+        `;
+
+        return;
+
+      }
+
+
+      data.forEach(function(item) {
+
+        const row =
+          document.createElement("tr");
+
+
+        row.innerHTML = `
+
+          <td>${item.id || ""}</td>
+
+          <td>${item.nama || ""}</td>
+
+          <td>${item.email || ""}</td>
+
+          <td>${item.pesan || ""}</td>
+
+        `;
+
+
+        table.appendChild(row);
+
+      });
+
+    })
+
+    .catch(function(error) {
+
+      console.error(error);
+
+      loading.textContent =
+        "❌ Gagal mengambil data.";
+
+    });
+
+}
+
+
+/* ENTER UNTUK LOGIN */
+
+document
+  .getElementById("adminPassword")
+  .addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+      loginAdmin();
+
+    }
+
+  });
+
+</script>
+
+</body>
+
+</html>
