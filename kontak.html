@@ -1,31 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
   <title>Desa Mensere - Kontak</title>
+
   <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <header>
-  <div class="logo">🌿 Desa Mensere</div>
+
+  <div class="logo">
+    🌿 Desa Mensere
+  </div>
 
   <nav>
-    <a href="index.html">Beranda</a>
-    <a href="profil.html">Profil</a>
-    <a href="pendidikan.html">Pendidikan</a>
-    <a href="fasilitas.html">Fasilitas</a>
-    <a href="budaya.html">Budaya</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="kontak.html">Kontak</a>
+
+    <a href="index.html">
+      Beranda
+    </a>
+
+    <a href="profil.html">
+      Profil
+    </a>
+
+    <a href="pendidikan.html">
+      Pendidikan
+    </a>
+
+    <a href="fasilitas.html">
+      Fasilitas
+    </a>
+
+    <a href="budaya.html">
+      Budaya
+    </a>
+
+    <a href="galeri.html">
+      Galeri
+    </a>
+
+    <a href="kontak.html">
+      Kontak
+    </a>
+
   </nav>
+
 </header>
+
+
 
 <main class="content">
 
-  <h1>Lokasi & Kontak Desa</h1>
+
+  <!-- JUDUL -->
+
+  <h1>
+    Lokasi & Kontak Desa
+  </h1>
+
+
+
+  <!-- GOOGLE MAPS -->
 
   <div class="map">
 
@@ -37,9 +84,15 @@
 
   </div>
 
+
+
+  <!-- INFORMASI DESA -->
+
   <div class="contact-box">
 
-    <h2>📍 Desa Mensere</h2>
+    <h2>
+      📍 Desa Mensere
+    </h2>
 
     <p>
       <strong>Alamat:</strong>
@@ -73,6 +126,10 @@
 
   </div>
 
+
+
+  <!-- TOMBOL GOOGLE MAPS -->
+
   <div class="map-button">
 
     <a
@@ -86,44 +143,79 @@
 
   </div>
 
-    <!-- FORM PESAN PENGUNJUNG -->
+
+
+  <!-- FORM PESAN -->
+
   <section class="content">
 
-    <h2>💬 Kirim Pesan</h2>
+    <h2>
+      💬 Kirim Pesan
+    </h2>
 
-    <form id="guestForm" class="guest-form">
+
+    <form
+      id="guestForm"
+      class="guest-form">
+
 
       <div class="form-group">
-        <label for="nama">Nama</label>
+
+        <label for="nama">
+          Nama
+        </label>
+
         <input
           type="text"
           id="nama"
           name="nama"
           placeholder="Masukkan nama"
           required>
+
       </div>
 
+
+
       <div class="form-group">
-        <label for="email">Email</label>
+
+        <label for="email">
+          Email
+        </label>
+
         <input
           type="email"
           id="email"
           name="email"
           placeholder="Masukkan email"
           required>
+
       </div>
 
+
+
       <div class="form-group">
-        <label for="pesan">Pesan</label>
+
+        <label for="pesan">
+          Pesan
+        </label>
+
         <textarea
           id="pesan"
           name="pesan"
           rows="5"
           placeholder="Tulis pesan..."
           required></textarea>
+
       </div>
 
-      <button type="submit">📨 Kirim Pesan</button>
+
+
+      <button type="submit">
+
+        📨 Kirim Pesan
+
+      </button>
+
 
       <p id="statusPesan"></p>
 
@@ -131,24 +223,282 @@
 
   </section>
 
-  <!-- DATA PESAN PENGUNJUNG -->
-<section class="visitor-section">
 
-  <h2>💬 Pesan Pengunjung</h2>
 
-  <div id="visitorMessages">
-    <p>Memuat data...</p>
-  </div>
+  <!-- PESAN PENGUNJUNG -->
 
-</section>
+  <section class="visitor-section">
+
+    <h2>
+      💬 Pesan Pengunjung
+    </h2>
+
+    <p class="visitor-description">
+      Berikut beberapa pesan yang telah dikirim
+      oleh pengunjung Desa Mensere.
+    </p>
+
+
+    <div
+      id="visitorMessages"
+      class="visitor-messages">
+
+      <p class="visitor-loading">
+        Memuat pesan...
+      </p>
+
+    </div>
+
+  </section>
+
 
 </main>
 
+
+
 <footer>
-  <p>© <span class="current-year"></span> Desa Mensere</p>
+
+  <p>
+    © <span class="current-year"></span>
+    Desa Mensere
+  </p>
+
 </footer>
+
+
 
 <script src="script.js"></script>
 
+
+
+<script>
+
+
+/* URL GOOGLE APPS SCRIPT */
+
+const CONTACT_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbz1cBVUtV7tkkbfqh1EpsmwOSKsYOn8-p-0ufR_tqJmrPJe8Hut-kNtPfPDJRnX8c4O/exec";
+
+
+
+/* FORM PESAN */
+
+const guestForm =
+  document.getElementById("guestForm");
+
+
+if (guestForm) {
+
+  guestForm.addEventListener(
+    "submit",
+    function(event) {
+
+      event.preventDefault();
+
+
+      const nama =
+        document.getElementById("nama").value;
+
+      const email =
+        document.getElementById("email").value;
+
+      const pesan =
+        document.getElementById("pesan").value;
+
+      const status =
+        document.getElementById("statusPesan");
+
+
+      status.textContent =
+        "Mengirim pesan...";
+
+
+      fetch(CONTACT_SCRIPT_URL, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+          "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify({
+
+          nama: nama,
+
+          email: email,
+
+          pesan: pesan
+
+        })
+
+      })
+
+      .then(function() {
+
+        status.textContent =
+          "Pesan Anda berhasil dikirim.";
+
+        guestForm.reset();
+
+
+        /* MUAT ULANG PESAN */
+
+        setTimeout(function() {
+
+          loadVisitorMessages();
+
+        }, 1000);
+
+      })
+
+      .catch(function(error) {
+
+        console.error(error);
+
+        status.textContent =
+          "Pesan gagal dikirim. Silakan coba lagi.";
+
+      });
+
+    });
+
+}
+
+
+
+/* MENAMPILKAN PESAN */
+
+function loadVisitorMessages() {
+
+  const container =
+    document.getElementById("visitorMessages");
+
+
+  if (!container) {
+    return;
+  }
+
+
+  container.innerHTML = `
+    <p class="visitor-loading">
+      Memuat pesan...
+    </p>
+  `;
+
+
+  fetch(CONTACT_SCRIPT_URL)
+
+    .then(function(response) {
+
+      return response.json();
+
+    })
+
+    .then(function(data) {
+
+
+      container.innerHTML = "";
+
+
+      if (
+        !data ||
+        data.length === 0
+      ) {
+
+        container.innerHTML = `
+          <div class="visitor-empty">
+            <p>
+              Belum ada pesan pengunjung.
+            </p>
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      /* PESAN TERBARU DI ATAS */
+
+      data.reverse();
+
+
+      data.forEach(function(item) {
+
+
+        const card =
+          document.createElement("div");
+
+
+        card.className =
+          "visitor-card";
+
+
+        const nama =
+          document.createElement("h3");
+
+
+        nama.textContent =
+          "👤 " + (item.nama || "Pengunjung");
+
+
+        const pesan =
+          document.createElement("p");
+
+
+        pesan.textContent =
+          item.pesan || "";
+
+
+        card.appendChild(nama);
+
+        card.appendChild(pesan);
+
+
+        container.appendChild(card);
+
+      });
+
+    })
+
+
+    .catch(function(error) {
+
+      console.error(error);
+
+
+      container.innerHTML = `
+        <div class="visitor-empty">
+          <p>
+            ❌ Pesan belum dapat dimuat.
+          </p>
+        </div>
+      `;
+
+    });
+
+}
+
+
+
+/* LOAD PESAN SAAT HALAMAN DIBUKA */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    loadVisitorMessages();
+
+  }
+);
+
+
+</script>
+
+
 </body>
+
 </html>

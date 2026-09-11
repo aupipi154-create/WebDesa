@@ -978,3 +978,199 @@ td {
   }
 
 }
+/* ============================= */
+/* PESAN PENGUNJUNG */
+/* ============================= */
+
+.visitor-section {
+
+  max-width: 850px;
+
+  margin: 50px auto;
+
+  padding: 30px;
+
+  background: #fff8fa;
+
+  border: 1px solid #e5b8c5;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(100,50,60,.10);
+
+}
+
+
+.visitor-section h2 {
+
+  text-align: center;
+
+  color: #2c653f;
+
+  margin-bottom: 10px;
+
+}
+
+
+.visitor-description {
+
+  text-align: center;
+
+  color: #637467;
+
+  margin-bottom: 30px;
+
+}
+
+
+.visitor-messages {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+}
+
+
+.visitor-card {
+
+  background: #ffffff;
+
+  border: 1px solid #e5b8c5;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  transition: .3s;
+
+}
+
+
+.visitor-card:hover {
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(100,50,60,.10);
+
+}
+
+
+.visitor-card h3 {
+
+  margin-bottom: 10px;
+
+  color: #2c653f;
+
+  font-size: 18px;
+
+}
+
+
+.visitor-card p {
+
+  margin: 0;
+
+  color: #637467;
+
+  line-height: 1.7;
+
+  word-wrap: break-word;
+
+}
+
+
+.visitor-loading {
+
+  text-align: center;
+
+  color: #637467;
+
+  padding: 20px;
+
+}
+
+
+.visitor-empty {
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e5b8c5;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  color: #637467;
+
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+  .visitor-section {
+
+    width: 100%;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    box-sizing: border-box;
+
+  }
+
+
+  .visitor-card {
+
+    padding: 16px;
+
+  }
+
+
+  .visitor-card h3 {
+
+    font-size: 16px;
+
+  }
+
+
+  .visitor-card p {
+
+    font-size: 15px;
+
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .visitor-section {
+
+    padding: 16px;
+
+  }
+
+
+  .visitor-card {
+
+    padding: 14px;
+
+  }
+
+}

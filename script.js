@@ -131,43 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzDgf75H1pYPl9-Xqay6yXZ_D9NJwpXk1FTOBzcKO5pUSUERxKxdzKdUOMd4KZf3zTO/exec";
-
-const guestForm = document.getElementById("guestForm");
-
-if (guestForm) {
-  guestForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const nama = document.getElementById("nama").value;
-    const email = document.getElementById("email").value;
-    const pesan = document.getElementById("pesan").value;
-    const status = document.getElementById("statusPesan");
-
-    status.textContent = "Mengirim pesan...";
-
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-      body: JSON.stringify({
-        nama: nama,
-        email: email,
-        pesan: pesan
-      })
-    })
-    .then(function() {
-      status.textContent = "Pesan berhasil dikirim. Terima kasih!";
-      guestForm.reset();
-    })
-    .catch(function(error) {
-      console.error(error);
-      status.textContent = "Pesan gagal dikirim. Silakan coba lagi.";
-    });
-  });
-}
 /* ============================= */
 /* MENAMPILKAN DATA PESAN DI WEB */
 /* ============================= */
