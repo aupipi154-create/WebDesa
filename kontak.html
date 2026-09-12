@@ -2,116 +2,231 @@
 <html lang="id">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Kontak - Desa Mensere</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Supaya isi kontak langsung terlihat -->
+  <style>
+    .contact-box,
+    .info-box {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
+
 </head>
+
 
 <body>
 
-  <!-- LANGIT -->
+
+  <!-- =========================================
+       LANGIT
+  ========================================= -->
+
   <div class="sky">
 
     <div class="sun"></div>
 
     <div class="cloud cloud1"></div>
+
     <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
 
     <div class="bird bird1">⌁</div>
+
     <div class="bird bird2">⌁</div>
+
     <div class="bird bird3">⌁</div>
 
   </div>
 
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+
+  <!-- =========================================
+       HEADER / NAVBAR
+  ========================================= -->
+
+  <header>
 
     <div class="logo">
       Desa Mensere
     </div>
 
-    <div class="nav-menu">
 
-      <a href="index.html">Beranda</a>
-      <a href="profil.html">Profil</a>
-      <a href="pendidikan.html">Pendidikan</a>
-      <a href="fasilitas.html">Fasilitas</a>
-      <a href="budaya.html">Budaya</a>
-      <a href="galeri.html">Galeri</a>
-      <a href="kontak.html" class="active">Kontak</a>
+    <nav>
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="profil.html">
+        Profil
+      </a>
+
+      <a href="pendidikan.html">
+        Pendidikan
+      </a>
+
+      <a href="fasilitas.html">
+        Fasilitas
+      </a>
+
+      <a href="budaya.html">
+        Budaya
+      </a>
+
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="kontak.html" class="active">
+        Kontak
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================================
+       KONTEN
+  ========================================= -->
+
+  <main class="content">
+
+
+    <h1>
+      📞 Kontak Desa Mensere
+    </h1>
+
+
+    <p class="page-description">
+      Silakan hubungi Desa Mensere atau kirimkan
+      pesan, saran, dan masukan melalui formulir
+      di bawah ini.
+    </p>
+
+
+
+    <!-- =========================================
+         INFORMASI KONTAK
+    ========================================= -->
+
+    <div class="contact-info">
+
+
+      <div class="contact-box">
+
+        <div class="contact-icon">
+          🏡
+        </div>
+
+        <h2>
+          Kantor Desa
+        </h2>
+
+        <p>
+          Desa Mensere
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-box">
+
+        <div class="contact-icon">
+          📍
+        </div>
+
+        <h2>
+          Alamat
+        </h2>
+
+        <p>
+          Desa Mensere, Kecamatan Tebas,
+          Kabupaten Sambas, Kalimantan Barat
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-box">
+
+        <div class="contact-icon">
+          💌
+        </div>
+
+        <h2>
+          Pesan
+        </h2>
+
+        <p>
+          Kirim pesan atau masukan
+          melalui formulir.
+        </p>
+
+      </div>
+
 
     </div>
 
-  </nav>
 
 
-  <!-- KONTEN -->
-  <main class="content">
+    <!-- =========================================
+         GOOGLE MAPS
+    ========================================= -->
 
-    <section class="info-box">
+    <div class="contact-location">
 
-      <h1>📞 Kontak Desa Mensere</h1>
-
-      <p>
-        Silakan hubungi kami atau kirimkan pesan,
-        saran, dan masukan untuk Desa Mensere.
-      </p>
-
-    </section>
+      <h2>
+        📍 Lokasi Kantor Desa Mensere
+      </h2>
 
 
-    <!-- INFORMASI KONTAK -->
-    <section class="contact-box">
+      <div class="map">
 
-      <h2>Informasi Desa</h2>
+        <iframe
+          src="https://www.google.com/maps?q=Kantor%20Desa%20Mensere,%20Mensere,%20Kecamatan%20Tebas,%20Kabupaten%20Sambas,%20Kalimantan%20Barat&output=embed"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
-      <p>
-        📍 <strong>Alamat:</strong><br>
-        Desa Mensere, Kecamatan Tebas,
-        Kabupaten Sambas, Kalimantan Barat
-      </p>
+      </div>
 
-      <p>
-        🏡 <strong>Kantor Desa:</strong><br>
-        Desa Mensere
-      </p>
-
-    </section>
+    </div>
 
 
-    <!-- PETA -->
-    <section class="contact-box">
 
-      <h2>📍 Lokasi Kantor Desa</h2>
+    <!-- =========================================
+         FORM PESAN
+    ========================================= -->
 
-      <p>
-        Lihat lokasi Kantor Desa Mensere melalui Google Maps.
-      </p>
-
-      <a
-        href="https://maps.app.goo.gl/fsoNRzLan2y7RCad6"
-        target="_blank"
-        class="map-button"
-      >
-        🗺️ Buka Google Maps
-      </a>
-
-    </section>
+    <div class="message-box">
 
 
-    <!-- FORM PESAN -->
-    <section class="contact-box">
+      <div class="message-title">
 
-      <h2>💌 Kirim Pesan</h2>
+        <h2>
+          💌 Kirim Pesan
+        </h2>
 
-      <p>
-        Silakan isi formulir di bawah ini.
-      </p>
+        <p>
+          Sampaikan pesan, saran, atau masukan
+          untuk Desa Mensere.
+        </p>
+
+      </div>
+
 
 
       <form
@@ -120,6 +235,7 @@
         method="POST"
         target="hiddenFrame"
       >
+
 
         <label for="nama">
           Nama Lengkap
@@ -132,6 +248,7 @@
           placeholder="Masukkan nama lengkap"
           required
         >
+
 
 
         <label for="email">
@@ -147,6 +264,7 @@
         >
 
 
+
         <label for="pesan">
           Pesan / Masukan
         </label>
@@ -154,10 +272,10 @@
         <textarea
           id="pesan"
           name="pesan"
-          rows="6"
           placeholder="Tulis pesan atau masukan..."
           required
         ></textarea>
+
 
 
         <button
@@ -167,42 +285,56 @@
           💌 Kirim Pesan
         </button>
 
+
         <p id="statusPesan"></p>
+
 
       </form>
 
 
-      <!-- FRAME TERSEMBUNYI -->
+      <!-- Frame untuk mengirim form tanpa pindah halaman -->
+
       <iframe
         name="hiddenFrame"
         id="hiddenFrame"
-        style="display:none;"
-      ></iframe>
-
-    </section>
+        style="display:none;">
+      </iframe>
 
 
-    <!-- UCAPAN -->
-    <section class="info-box">
+    </div>
 
-      <h2>🌸 Terima Kasih</h2>
+
+
+    <!-- =========================================
+         UCAPAN TERIMA KASIH
+    ========================================= -->
+
+    <div class="thank-you-message">
+
+      <div class="thank-icon">
+        🌸
+      </div>
 
       <p>
-        Terima kasih telah mengunjungi website
-        Desa Mensere dan memberikan pesan,
-        saran, maupun masukan.
+        Terima kasih telah mengunjungi
+        Website Desa Mensere.
       </p>
 
-    </section>
+    </div>
+
 
   </main>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <footer>
 
     <p>
-      © <span class="current-year"></span>
+      © <span id="tahun"></span>
       Desa Mensere
     </p>
 
@@ -214,72 +346,70 @@
   </footer>
 
 
-  <!-- SCRIPT -->
+
+  <!-- =========================================
+       SCRIPT KHUSUS HALAMAN KONTAK
+  ========================================= -->
+
   <script>
 
     /* Tahun otomatis */
 
-    document
-      .querySelectorAll(".current-year")
-      .forEach(function(element) {
-
-        element.textContent =
-          new Date().getFullYear();
-
-      });
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
 
 
-    /* FORM PESAN */
 
-    const guestForm =
+    /* Form pesan */
+
+    const form =
       document.getElementById("guestForm");
 
-    const sendButton =
+    const tombol =
       document.getElementById("sendButton");
 
-    const statusPesan =
+    const status =
       document.getElementById("statusPesan");
 
-    const hiddenFrame =
+    const frame =
       document.getElementById("hiddenFrame");
 
 
-    guestForm.addEventListener(
-      "submit",
-      function() {
 
-        statusPesan.textContent =
-          "⏳ Sedang mengirim pesan...";
+    form.addEventListener("submit", function () {
 
-        sendButton.disabled = true;
+      tombol.disabled = true;
 
-        sendButton.textContent =
-          "⏳ Mengirim...";
+      tombol.textContent =
+        "⏳ Mengirim...";
 
-      }
-    );
+      status.textContent =
+        "Sedang mengirim pesan...";
+
+    });
 
 
-    /* Setelah form selesai dikirim */
 
-    hiddenFrame.addEventListener(
-      "load",
-      function() {
+    frame.addEventListener("load", function () {
 
-        statusPesan.textContent =
+      if (tombol.disabled) {
+
+        status.textContent =
           "✅ Pesan berhasil dikirim! Terima kasih.";
 
-        guestForm.reset();
+        form.reset();
 
-        sendButton.disabled = false;
+        tombol.disabled = false;
 
-        sendButton.textContent =
+        tombol.textContent =
           "💌 Kirim Pesan";
 
       }
-    );
+
+    });
 
   </script>
+
 
 </body>
 
