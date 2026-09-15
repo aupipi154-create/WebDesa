@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin - Desa Mensere</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FAVICON -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E🌿%3C/text%3E%3C/svg%3E"
+  >
+
+  <style>
+
+    /* =========================================
+       ADMIN
+    ========================================= */
+
+    .admin-box {
+
+      width: 100%;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      padding: 30px;
+
+      background: #fff8fa;
+
+      border: 1px solid #e5b8c5;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 25px rgba(100, 50, 60, .08);
+
+    }
+
+
+    .admin-title {
+
+      text-align: center;
+
+      color: #285b3a;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .login-box {
+
+      max-width: 450px;
+
+      margin: auto;
+
+      text-align: center;
+
+    }
+
+
+    .login-box input {
+
+      width: 100%;
+
+      padding: 14px;
+
+      margin: 10px 0;
+
+      border: 2px solid #e5cbd2;
+
+      border-radius: 12px;
+
+      font-size: 16px;
+
+      outline: none;
+
+    }
+
+
+    .login-box button {
+
+      padding: 13px 25px;
+
+      background: #669e59;
+
+      color: white;
+
+      border: none;
+
+      border-radius: 12px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+
+    .login-box button:hover {
+
+      background: #d16d88;
+
+    }
+
+
+    #loginStatus {
+
+      margin-top: 15px;
+
+      color: #d16d88;
+
+      font-weight: bold;
+
+    }
+
+
+    .admin-content {
+
+      display: none;
+
+    }
+
+
+    .table-wrapper {
+
+      width: 100%;
+
+      overflow-x: auto;
+
+    }
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      margin-top: 20px;
+
+      background: white;
+
+    }
+
+
+    th {
+
+      background: #669e59;
+
+      color: white;
+
+      padding: 12px;
+
+      text-align: left;
+
+    }
+
+
+    td {
+
+      padding: 12px;
+
+      border-bottom: 1px solid #e5b8c5;
+
+      color: #53695a;
+
+    }
+
+
+    tr:hover {
+
+      background: #fff0f4;
+
+    }
+
+
+    .logout-button {
+
+      float: right;
+
+      padding: 10px 18px;
+
+      background: #d16d88;
+
+      color: white;
+
+      border: none;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+    }
+
+
+    .logout-button:hover {
+
+      background: #669e59;
+
+    }
+
+
+    .data-status {
+
+      margin-top: 15px;
+
+      text-align: center;
+
+      color: #4d8145;
+
+      font-weight: bold;
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .admin-box {
+
+        padding: 20px 15px;
+
+      }
+
+
+      table {
+
+        font-size: 13px;
+
+      }
+
+
+      th,
+      td {
+
+        padding: 9px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- LANGIT -->
+
+  <div class="sky">
+
+    <div class="sun"></div>
+
+    <div class="cloud cloud1"></div>
+
+    <div class="cloud cloud2"></div>
+
+    <div class="bird bird1">⌁</div>
+
+    <div class="bird bird2">⌁</div>
+
+  </div>
+
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      🌿 Desa Mensere
+    </div>
+
+
+    <nav>
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="profil.html">
+        Profil
+      </a>
+
+      <a href="pendidikan.html">
+        Pendidikan
+      </a>
+
+      <a href="fasilitas.html">
+        Fasilitas
+      </a>
+
+      <a href="budaya.html">
+        Budaya
+      </a>
+
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="kontak.html">
+        Kontak
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- KONTEN -->
+
+  <main class="content">
+
+
+    <div class="admin-box">
+
+
+      <!-- LOGIN -->
+
+      <div id="loginBox" class="login-box">
+
+        <h1 class="admin-title">
+          🔐 Admin Desa Mensere
+        </h1>
+
+        <p>
+          Silakan masukkan password admin.
+        </p>
+
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Masukkan password"
+        >
+
+
+        <button onclick="login()">
+          🔓 Masuk
+        </button>
+
+
+        <p id="loginStatus"></p>
+
+      </div>
+
+
+
+      <!-- DATA ADMIN -->
+
+      <div
+        id="adminContent"
+        class="admin-content"
+      >
+
+        <button
+          class="logout-button"
+          onclick="logout()"
+        >
+          Keluar
+        </button>
+
+
+        <h1 class="admin-title">
+          📋 Data Pesan Pengunjung
+        </h1>
+
+
+        <div
+          id="dataStatus"
+          class="data-status"
+        >
+          ⏳ Mengambil data...
+        </div>
+
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  ID
+                </th>
+
+                <th>
+                  Waktu
+                </th>
+
+                <th>
+                  Nama
+                </th>
+
+                <th>
+                  Email
+                </th>
+
+                <th>
+                  Pesan
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="dataTable">
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © <span id="tahun"></span>
+      Desa Mensere
+    </p>
+
+    <p>
+      Kecamatan Tebas, Kabupaten Sambas,
+      Kalimantan Barat
+    </p>
+
+  </footer>
+
+
+
+  <script>
+
+    /* =========================================
+       PENGATURAN
+    ========================================= */
+
+    const ADMIN_PASSWORD = "admin123";
+
+
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbxQ8B31LUIg4sYRopLwjS8B3JDqnshjJKTeSR7kncAD5PMLd_m2VXhWpTRL7PWH5XFG/exec";
+
+
+
+    /* =========================================
+       TAHUN
+    ========================================= */
+
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
+
+
+
+    /* =========================================
+       LOGIN
+    ========================================= */
+
+    function login() {
+
+      const password =
+        document.getElementById("password").value;
+
+      const status =
+        document.getElementById("loginStatus");
+
+
+      if (password === ADMIN_PASSWORD) {
+
+        document.getElementById("loginBox").style.display =
+          "none";
+
+        document.getElementById("adminContent").style.display =
+          "block";
+
+        loadData();
+
+      } else {
+
+        status.textContent =
+          "❌ Password salah.";
+
+      }
+
+    }
+
+
+
+    /* =========================================
+       AMBIL DATA
+    ========================================= */
+
+    function loadData() {
+
+      const status =
+        document.getElementById("dataStatus");
+
+      const table =
+        document.getElementById("dataTable");
+
+
+      fetch(SCRIPT_URL)
+
+        .then(function(response) {
+
+          return response.json();
+
+        })
+
+        .then(function(data) {
+
+          table.innerHTML = "";
+
+
+          if (!data || data.length === 0) {
+
+            status.textContent =
+              "Belum ada pesan dari pengunjung.";
+
+            return;
+
+          }
+
+
+          data.reverse().forEach(function(item) {
+
+            const row =
+              document.createElement("tr");
+
+
+            row.innerHTML = `
+
+              <td>
+                ${item.id || ""}
+              </td>
+
+              <td>
+                ${item.waktu || ""}
+              </td>
+
+              <td>
+                ${item.nama || ""}
+              </td>
+
+              <td>
+                ${item.email || ""}
+              </td>
+
+              <td>
+                ${item.pesan || ""}
+              </td>
+
+            `;
+
+
+            table.appendChild(row);
+
+          });
+
+
+          status.textContent =
+            "✅ Data berhasil dimuat.";
+
+        })
+
+
+        .catch(function(error) {
+
+          console.error(error);
+
+          status.textContent =
+            "❌ Gagal mengambil data.";
+
+        });
+
+    }
+
+
+
+    /* =========================================
+       LOGOUT
+    ========================================= */
+
+    function logout() {
+
+      document.getElementById("adminContent").style.display =
+        "none";
+
+      document.getElementById("loginBox").style.display =
+        "block";
+
+      document.getElementById("password").value =
+        "";
+
+      document.getElementById("loginStatus").textContent =
+        "";
+
+    }
+
+
+
+    /* ENTER UNTUK LOGIN */
+
+    document.getElementById("password")
+      .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+
+          login();
+
+        }
+
+      });
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,127 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desa Mensere - Pendidikan</title>
+
+  <title>Pendidikan - Desa Mensere</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- FAVICON -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E🌿%3C/text%3E%3C/svg%3E"
+  >
+
+  <!-- Supaya kartu langsung terlihat -->
+  <style>
+    .card {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="logo">🌿 Desa Mensere</div>
 
-  <nav>
-    <a href="index.html">Beranda</a>
-    <a href="profil.html">Profil</a>
-    <a href="pendidikan.html">Pendidikan</a>
-    <a href="fasilitas.html">Fasilitas</a>
-    <a href="budaya.html">Budaya</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
-</header>
+  <!-- =========================================
+       LANGIT
+  ========================================= -->
 
+  <div class="sky">
 
-  <h1>🏫 Pendidikan Desa Mensere</h1>
+    <div class="sun"></div>
 
-  <p class="page-description">
-    Lembaga sekolah penunjang pendidikan formal dari usia dini
-    hingga menengah.
-  </p>
+    <div class="cloud cloud1"></div>
 
+    <div class="cloud cloud2"></div>
 
-  <div class="places">
+    <div class="bird bird1">⌁</div>
 
-<!-- SEKOLAH 4 -->
+    <div class="bird bird2">⌁</div>
 
-    <div class="card">
-
-      <div class="card-content">
-
-        <h3>🏫 PAUD KB NUR HIDAYAH</h3>
-
-        <p>
-          Dusun Lestari, Desa Mensere
-        </p>
-
-      </div>
-
-    </div>
-
+    <div class="bird bird3">⌁</div>
 
   </div>
 
-</main>
-  
-    <!-- SEKOLAH 1 -->
 
-    <div class="card">
 
-      <img src="sd.jpg" alt="SDN 06 Mensere">
+  <!-- =========================================
+       HEADER
+  ========================================= -->
 
-      <div class="card-content">
+  <header>
 
-        <h3>🏫 SDN 06 Mensere</h3>
+    <div class="logo">
+      🌿 Desa Mensere
+    </div>
 
-        <p>
-          Sekolah dasar negeri pusat yang menampung banyak siswa siswi di jalur utama Desa Mensere.
-        </p>
+
+    <nav>
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="profil.html">
+        Profil
+      </a>
+
+      <a href="pendidikan.html" class="active">
+        Pendidikan
+      </a>
+
+      <a href="fasilitas.html">
+        Fasilitas
+      </a>
+
+      <a href="budaya.html">
+        Budaya
+      </a>
+
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="kontak.html">
+        Kontak
+      </a>
+
+      <a href="admin.html">
+        Admin
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================================
+       KONTEN
+  ========================================= -->
+
+  <main class="content">
+
+
+    <h1>
+      🏫 Pendidikan Desa Mensere
+    </h1>
+
+
+    <p class="page-description">
+      Lembaga pendidikan yang mendukung
+      pendidikan masyarakat Desa Mensere
+      dari usia dini hingga menengah.
+    </p>
+
+
+
+    <!-- =========================================
+         DAFTAR SEKOLAH
+    ========================================= -->
+
+    <div class="places">
+
+
+      <!-- PAUD -->
+
+      <div class="card">
+
+        <div class="card-content">
+
+          <h3>
+            🏫 PAUD KB NUR HIDAYAH
+          </h3>
+
+          <p>
+            Dusun Lestari, Desa Mensere
+          </p>
+
+        </div>
 
       </div>
+
+
+
+      <!-- SDN 06 -->
+
+      <div class="card">
+
+
+        <img
+          src="foto.jpg"
+          alt="SDN 06 Mensere"
+        >
+
+
+        <div class="card-content">
+
+          <h3>
+            🏫 SDN 06 Mensere
+          </h3>
+
+          <p>
+            Sekolah dasar negeri yang berada
+            di Desa Mensere dan menjadi salah
+            satu tempat pendidikan masyarakat.
+          </p>
+
+
+          <a
+            href="https://maps.app.goo.gl/bfYJ1T3wshq45ti69"
+            target="_blank"
+          >
+            📍 Lihat di Google Maps
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SDN 34 -->
+
+      <div class="card">
+
+        <div class="card-content">
+
+          <h3>
+            🏫 SDN 34 Mensere
+          </h3>
+
+          <p>
+            Dusun Bumi Asih, Desa Mensere
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MTs -->
+
+      <div class="card">
+
+        <div class="card-content">
+
+          <h3>
+            🏫 MTs AT-TAQWA Mensere
+          </h3>
+
+          <p>
+            Dusun Bumi Asih, Desa Mensere
+          </p>
+
+        </div>
+
+      </div>
+
 
     </div>
 
 
-    <!-- SEKOLAH 2 -->
-
-    <div class="card">
-
-      <div class="card-content">
-
-        <h3>🏫 SDN 34 MENSERE</h3>
-
-        <p>
-          Dusun Bumi Asih, Desa Mensere
-        </p>
+  </main>
 
 
-      </div>
 
-    </div>
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
 
+  <footer>
 
-    <!-- SEKOLAH 3 -->
+    <p>
+      © <span id="tahun"></span>
+      Desa Mensere
+    </p>
 
-    <div class="card">
+    <p>
+      Kecamatan Tebas, Kabupaten Sambas,
+      Kalimantan Barat
+    </p>
 
-      <div class="card-content">
-
-        <h3>🏫 MTS AT-TAQWA MENSERE</h3>
-
-        <p>
-          Dusun Bumi Asih, Desa Mensere
-        </p>
-
-
-        </a>
-
-      </div>
-
-    </div>
+  </footer>
 
 
-<footer>
 
-  <p>
-    © <span class="current-year"></span> Desa Mensere
-  </p>
+  <script>
 
-</footer>
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
 
+  </script>
 
-<script src="script.js"></script>
 
 </body>
+
 </html>
