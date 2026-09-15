@@ -11,6 +11,9 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <!-- Supaya isi kontak langsung terlihat -->
   <style>
     .contact-box,
@@ -45,7 +48,6 @@
     <div class="bird bird3">⌁</div>
 
   </div>
-
 
 
   <!-- =========================================
@@ -89,14 +91,13 @@
         Kontak
       </a>
 
-      <a href="admin.html" class="active">
-        Kontak
+      <a href="admin.html">
+        Admin
       </a>
 
     </nav>
 
   </header>
-
 
 
   <!-- =========================================
@@ -116,7 +117,6 @@
       pesan, saran, dan masukan melalui formulir
       di bawah ini.
     </p>
-
 
 
     <!-- =========================================
@@ -143,7 +143,6 @@
       </div>
 
 
-
       <div class="contact-box">
 
         <div class="contact-icon">
@@ -160,7 +159,6 @@
         </p>
 
       </div>
-
 
 
       <div class="contact-box">
@@ -182,7 +180,6 @@
 
 
     </div>
-
 
 
     <!-- =========================================
@@ -210,7 +207,6 @@
     </div>
 
 
-
     <!-- =========================================
          FORM PESAN
     ========================================= -->
@@ -232,56 +228,74 @@
       </div>
 
 
-
       <form
-  id="guestForm"
-  action="https://script.google.com/macros/s/AKfycbxQ8B31LUIg4sYRopLwjS8B3JDqnshjJKTeSR7kncAD5PMLd_m2VXhWpTRL7PWH5XFG/exec"
-  method="POST"
-  target="hiddenFrame"
->
+        id="guestForm"
+        action="https://script.google.com/macros/s/AKfycbxQ8B31LUIg4sYRopLwjS8B3JDqnshjJKTeSR7kncAD5PMLd_m2VXhWpTRL7PWH5XFG/exec"
+        method="POST"
+        target="hiddenFrame"
+      >
 
-  <label for="nama">Nama Lengkap</label>
-  <input
-    type="text"
-    id="nama"
-    name="nama"
-    placeholder="Masukkan nama lengkap"
-    required
-  >
+        <label for="nama">
+          Nama Lengkap
+        </label>
 
-  <label for="email">Email</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    placeholder="Masukkan email"
-    required
-  >
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Masukkan nama lengkap"
+          required
+        >
 
-  <label for="pesan">Pesan / Masukan</label>
-  <textarea
-    id="pesan"
-    name="pesan"
-    placeholder="Tulis pesan atau masukan..."
-    required
-  ></textarea>
 
-  <button type="submit" id="sendButton">
-    💌 Kirim Pesan
-  </button>
+        <label for="email">
+          Email
+        </label>
 
-  <p id="statusPesan"></p>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Masukkan email"
+          required
+        >
 
-</form>
 
-<iframe
-  name="hiddenFrame"
-  id="hiddenFrame"
-  style="display:none;"
-></iframe>
+        <label for="pesan">
+          Pesan / Masukan
+        </label>
+
+        <textarea
+          id="pesan"
+          name="pesan"
+          placeholder="Tulis pesan atau masukan..."
+          required
+        ></textarea>
+
+
+        <button
+          type="submit"
+          id="sendButton"
+        >
+          💌 Kirim Pesan
+        </button>
+
+
+        <p id="statusPesan"></p>
+
+      </form>
+
+
+      <!-- Frame tersembunyi untuk menerima hasil Apps Script -->
+
+      <iframe
+        name="hiddenFrame"
+        id="hiddenFrame"
+        style="display:none;"
+      ></iframe>
+
 
     </div>
-
 
 
     <!-- =========================================
@@ -305,7 +319,6 @@
   </main>
 
 
-
   <!-- =========================================
        FOOTER
   ========================================= -->
@@ -325,9 +338,8 @@
   </footer>
 
 
-
   <!-- =========================================
-       SCRIPT KHUSUS HALAMAN KONTAK
+       SCRIPT KHUSUS KONTAK
   ========================================= -->
 
   <script>
@@ -338,52 +350,69 @@
       new Date().getFullYear();
 
 
-
     /* Form pesan */
 
-    const form =
+    const guestForm =
       document.getElementById("guestForm");
 
-    const tombol =
+    const sendButton =
       document.getElementById("sendButton");
 
-    const status =
+    const statusPesan =
       document.getElementById("statusPesan");
 
-    const frame =
+    const hiddenFrame =
       document.getElementById("hiddenFrame");
 
 
+    let sedangMengirim = false;
 
-    form.addEventListener("submit", function () {
 
-      tombol.disabled = true;
+    /* Saat tombol diklik */
 
-      tombol.textContent =
+    guestForm.addEventListener("submit", function () {
+
+      sedangMengirim = true;
+
+      statusPesan.textContent =
+        "⏳ Sedang mengirim pesan...";
+
+      sendButton.disabled = true;
+
+      sendButton.textContent =
         "⏳ Mengirim...";
-
-      status.textContent =
-        "Sedang mengirim pesan...";
 
     });
 
 
+    /* Setelah Apps Script menerima kiriman */
 
-    frame.addEventListener("load", function () {
+    hiddenFrame.addEventListener("load", function () {
 
-      if (tombol.disabled) {
-
-        status.textContent =
-          "✅ Pesan berhasil dikirim! Terima kasih.";
-
-        form.reset();
-
-        tombol.disabled = false;
-
-        tombol.textContent =
-          "💌 Kirim Pesan";
-
+      if (!sedangMengirim) {
+        return;
       }
+
+
+      statusPesan.textContent =
+        "✅ Pesan berhasil dikirim!";
+
+
+      sendButton.textContent =
+        "✅ Berhasil";
+
+
+      /*
+        Tunggu 1 detik,
+        lalu masuk ke halaman admin
+      */
+
+      setTimeout(function () {
+
+        window.location.href =
+          "admin.html";
+
+      }, 1000);
 
     });
 
