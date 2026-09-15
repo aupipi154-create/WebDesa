@@ -109,7 +109,7 @@ video {
 
 .bird {
   position: absolute;
-  left: -100px;
+  right: -100px;
   top: 70px;
   font-size: 28px;
   color: #356c52;
