@@ -2,61 +2,46 @@
 <html lang="id">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Pendidikan - Desa Mensere</title>
 
+  <link rel="icon" type="image/jpg" href="favicon.jpg">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <link rel="stylesheet" href="style.css">
 
-  <!-- FAVICON / ICON DESA -->
-<link rel="icon" type="image/jpg" href="favicon.jpg">
-
-<!-- ICON SAAT DITAMBAHKAN KE LAYAR HP -->
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-title" content="Desa Mensere">
-<meta name="application-name" content="Desa Mensere">
-
+  <!-- MEMBUAT KARTU PENDIDIKAN LANGSUNG TERLIHAT -->
+  <style>
+    .card {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-  <!-- =========================================
-       LANGIT
-  ========================================= -->
-
+  <!-- LANGIT -->
   <div class="sky">
-
     <div class="sun"></div>
-
     <div class="cloud cloud1"></div>
-
     <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
 
     <div class="bird bird1">⌁</div>
-
     <div class="bird bird2">⌁</div>
-
     <div class="bird bird3">⌁</div>
-
   </div>
 
 
-
-  <!-- =========================================
-       HEADER
-  ========================================= -->
-
+  <!-- HEADER -->
   <header>
 
     <div class="logo">
-      🌿 Desa Mensere
+       Desa Mensere
     </div>
-
 
     <nav>
 
@@ -97,83 +82,41 @@
   </header>
 
 
-
-  <!-- =========================================
-       KONTEN
-  ========================================= -->
-
+  <!-- ISI HALAMAN -->
   <main class="content">
 
+    <h1>Pendidikan Desa Mensere</h1>
 
-    <h1>
-      🏫 Pendidikan Desa Mensere
-    </h1>
-
-
-    <p class="page-description">
-      Lembaga pendidikan yang mendukung
-      pendidikan masyarakat Desa Mensere
-      dari usia dini hingga menengah.
+    <p>
+      Pendidikan merupakan bagian penting dalam meningkatkan
+      kualitas sumber daya manusia masyarakat Desa Mensere.
+      Berikut beberapa fasilitas pendidikan yang ada di Desa Mensere.
     </p>
 
 
-
-    <!-- =========================================
-         DAFTAR SEKOLAH
-    ========================================= -->
-
-    <div class="places">
+    <!-- DAFTAR PENDIDIKAN -->
+    <section class="places">
 
 
-      <!-- PAUD -->
-
+      <!-- SDN 06 MENSERE -->
       <div class="card">
+
+        <img src="sd.jpg" alt="SDN 06 Mensere">
 
         <div class="card-content">
 
-          <h3>
-            🏫 PAUD KB NUR HIDAYAH
-          </h3>
+          <h2>SDN 06 Mensere</h2>
 
           <p>
-            Dusun Lestari, Desa Mensere
+            Sekolah Dasar Negeri 06 Mensere merupakan salah satu
+            tempat pendidikan dasar bagi masyarakat Desa Mensere.
           </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- SDN 06 -->
-
-      <div class="card">
-
-
-        <img
-          src="sd.jpg"
-          alt="SDN 06 Mensere"
-        >
-
-
-        <div class="card-content">
-
-          <h3>
-            🏫 SDN 06 Mensere
-          </h3>
-
-          <p>
-            Sekolah dasar negeri yang berada
-            di Desa Mensere dan menjadi salah
-            satu tempat pendidikan masyarakat.
-          </p>
-
 
           <a
             href="https://maps.app.goo.gl/bfYJ1T3wshq45ti69"
             target="_blank"
           >
-            📍 Lihat di Google Maps
+            📍 Lihat Lokasi
           </a>
 
         </div>
@@ -181,80 +124,91 @@
       </div>
 
 
-
-      <!-- SDN 34 -->
-
+      <!-- SD -->
       <div class="card">
 
+        
         <div class="card-content">
 
-          <h3>
-            🏫 SDN 34 Mensere
-          </h3>
+          <h2>SD 34 Mensere</h2>
 
           <p>
-            Dusun Bumi Asih, Desa Mensere
+            Sekolah dasar menjadi tempat pendidikan dasar
+            bagi anak-anak di Desa Mensere.
           </p>
+
+          <a href=>
+            📍 Lihat Lokasi
+          </a>
 
         </div>
 
       </div>
 
+
+      <!-- PAUD -->
+      <div class="card">
+
+      
+        <div class="card-content">
+
+          <h2>PAUD NUR HIDAYA</h2>
+
+          <p>
+            Pendidikan Anak Usia Dini membantu memberikan
+            pendidikan dan pembelajaran bagi anak usia dini.
+          </p>
+
+          <a href=>
+            📍 Lihat Lokasi
+          </a>
+
+        </div>
+
+      </div>
 
 
       <!-- MTs -->
-
       <div class="card">
 
         <div class="card-content">
 
-          <h3>
-            🏫 MTs AT-TAQWA Mensere
-          </h3>
+          <h2>MTs At-Taqwa</h2>
 
           <p>
-            Dusun Bumi Asih, Desa Mensere
+            Madrasah Tsanawiyah menjadi salah satu tempat
+            pendidikan tingkat menengah bagi masyarakat.
           </p>
+
+          <a href=>
+            📍 Lihat Lokasi
+          </a>
 
         </div>
 
       </div>
 
-
-    </div>
-
+    </section>
 
   </main>
 
 
-
-  <!-- =========================================
-       FOOTER
-  ========================================= -->
-
+  <!-- FOOTER -->
   <footer>
 
     <p>
-      © <span id="tahun"></span>
+      © <span class="current-year"></span>
       Desa Mensere
-    </p>
-
-    <p>
-      Kecamatan Tebas, Kabupaten Sambas,
-      Kalimantan Barat
     </p>
 
   </footer>
 
 
-
+  <!-- TAHUN OTOMATIS -->
   <script>
-
-    document.getElementById("tahun").textContent =
+    document.querySelector(".current-year").textContent =
       new Date().getFullYear();
-
   </script>
-
 
 </body>
 
