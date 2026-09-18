@@ -1,4 +1,4 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -358,21 +358,13 @@ l<!DOCTYPE html>
               <tr>
 
                 <th>ID</th>
-
                 <th>Waktu</th>
-
                 <th>Token</th>
-
                 <th>Nama</th>
-
                 <th>Email</th>
-
                 <th>Pesan</th>
-
                 <th>Balasan</th>
-
                 <th>Status</th>
-
                 <th>Aksi</th>
 
               </tr>
@@ -425,8 +417,9 @@ l<!DOCTYPE html>
     const ADMIN_PASSWORD = "admin123";
 
 
+    // URL APPS SCRIPT BARU
     const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec";
+      "https://script.google.com/macros/s/AKfycbwc2KT3wPggu-_XZDi4jbHJiWH2mn61CDvFGbGpcavxCv7vESejkUUyi61AZU_erEShKg/exec";
 
 
     // =========================================
@@ -492,7 +485,9 @@ l<!DOCTYPE html>
         .then(function(response) {
 
           if (!response.ok) {
-            throw new Error("Gagal terhubung ke Apps Script");
+            throw new Error(
+              "Gagal terhubung ke Apps Script"
+            );
           }
 
           return response.json();
@@ -514,7 +509,9 @@ l<!DOCTYPE html>
 
           if (!Array.isArray(data)) {
 
-            throw new Error("Format data tidak sesuai");
+            throw new Error(
+              "Format data tidak sesuai"
+            );
 
           }
 
@@ -630,11 +627,18 @@ l<!DOCTYPE html>
 
     function aman(teks) {
 
-      if (teks === null || teks === undefined) {
+      if (
+        teks === null ||
+        teks === undefined
+      ) {
+
         return "";
+
       }
 
+
       return String(teks)
+
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -658,7 +662,9 @@ l<!DOCTYPE html>
 
       if (!textarea) {
 
-        alert("Kolom balasan tidak ditemukan.");
+        alert(
+          "Kolom balasan tidak ditemukan."
+        );
 
         return;
 
@@ -671,7 +677,9 @@ l<!DOCTYPE html>
 
       if (!balasan) {
 
-        alert("Silakan tulis balasan terlebih dahulu.");
+        alert(
+          "Silakan tulis balasan terlebih dahulu."
+        );
 
         return;
 
@@ -768,17 +776,24 @@ l<!DOCTYPE html>
 
     function logout() {
 
-      document.getElementById("adminContent").style.display =
-        "none";
+      document.getElementById(
+        "adminContent"
+      ).style.display = "none";
 
-      document.getElementById("loginBox").style.display =
-        "block";
 
-      document.getElementById("password").value =
-        "";
+      document.getElementById(
+        "loginBox"
+      ).style.display = "block";
 
-      document.getElementById("loginStatus").textContent =
-        "";
+
+      document.getElementById(
+        "password"
+      ).value = "";
+
+
+      document.getElementById(
+        "loginStatus"
+      ).textContent = "";
 
     }
 
