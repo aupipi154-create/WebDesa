@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -12,242 +11,200 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- FAVICON / ICON DESA -->
-<link rel="icon" type="image/jpg" href="favicon.jpg">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <link rel="apple-touch-icon" href="favicon.jpg">
 
-<!-- ICON SAAT DITAMBAHKAN KE LAYAR HP -->
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-title" content="Desa Mensere">
-<meta name="application-name" content="Desa Mensere">
+  <meta name="apple-mobile-web-app-title" content="Desa Mensere">
+  <meta name="application-name" content="Desa Mensere">
+
 
   <style>
 
-    /* =========================================
-       ADMIN
-    ========================================= */
-
     .admin-box {
-
       width: 100%;
-
       max-width: 1100px;
-
       margin: 0 auto;
-
       padding: 30px;
-
       background: #fff8fa;
-
       border: 1px solid #e5b8c5;
-
       border-radius: 20px;
-
-      box-shadow:
-        0 10px 25px rgba(100, 50, 60, .08);
-
+      box-shadow: 0 10px 25px rgba(100, 50, 60, .08);
     }
 
 
     .admin-title {
-
       text-align: center;
-
       color: #285b3a;
-
       margin-bottom: 25px;
-
     }
 
 
     .login-box {
-
       max-width: 450px;
-
       margin: auto;
-
       text-align: center;
-
     }
 
 
     .login-box input {
-
       width: 100%;
-
       padding: 14px;
-
       margin: 10px 0;
-
       border: 2px solid #e5cbd2;
-
       border-radius: 12px;
-
       font-size: 16px;
-
       outline: none;
-
+      box-sizing: border-box;
     }
 
 
     .login-box button {
-
       padding: 13px 25px;
-
       background: #669e59;
-
       color: white;
-
       border: none;
-
       border-radius: 12px;
-
       font-weight: bold;
-
       cursor: pointer;
-
     }
 
 
     .login-box button:hover {
-
       background: #d16d88;
-
     }
 
 
     #loginStatus {
-
       margin-top: 15px;
-
       color: #d16d88;
-
       font-weight: bold;
-
     }
 
 
     .admin-content {
-
       display: none;
-
     }
 
 
     .table-wrapper {
-
       width: 100%;
-
       overflow-x: auto;
-
     }
 
 
     table {
-
       width: 100%;
-
       border-collapse: collapse;
-
       margin-top: 20px;
-
       background: white;
-
+      min-width: 1000px;
     }
 
 
     th {
-
       background: #669e59;
-
       color: white;
-
       padding: 12px;
-
       text-align: left;
-
     }
 
 
     td {
-
       padding: 12px;
-
       border-bottom: 1px solid #e5b8c5;
-
       color: #53695a;
-
+      vertical-align: top;
     }
 
 
     tr:hover {
-
       background: #fff0f4;
-
     }
 
 
     .logout-button {
-
       float: right;
-
       padding: 10px 18px;
-
       background: #d16d88;
-
       color: white;
-
       border: none;
-
       border-radius: 10px;
-
       cursor: pointer;
-
       font-weight: bold;
-
     }
 
 
     .logout-button:hover {
-
       background: #669e59;
-
     }
 
 
     .data-status {
-
       margin-top: 15px;
-
       text-align: center;
-
       color: #4d8145;
-
       font-weight: bold;
+    }
 
+
+    .balasan-input {
+      width: 220px;
+      min-height: 70px;
+      padding: 10px;
+      border: 1px solid #e5b8c5;
+      border-radius: 10px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+
+    .balas-button {
+      margin-top: 7px;
+      padding: 9px 14px;
+      background: #669e59;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+
+    .balas-button:hover {
+      background: #d16d88;
+    }
+
+
+    .status-menunggu {
+      color: #d16d88;
+      font-weight: bold;
+    }
+
+
+    .status-selesai {
+      color: #4d8145;
+      font-weight: bold;
     }
 
 
     @media (max-width: 700px) {
 
       .admin-box {
-
         padding: 20px 15px;
-
       }
-
 
       table {
-
         font-size: 13px;
-
       }
-
 
       th,
       td {
-
         padding: 9px;
+      }
 
+      .balasan-input {
+        width: 180px;
       }
 
     }
@@ -277,13 +234,12 @@
   </div>
 
 
-
   <!-- HEADER -->
 
   <header>
 
     <div class="logo">
-       Desa Mensere
+      Desa Mensere
     </div>
 
 
@@ -317,14 +273,13 @@
         Kontak
       </a>
 
-      <a href="admin.html">
+      <a href="admin.html" class="active">
         Admin
       </a>
 
     </nav>
 
   </header>
-
 
 
   <!-- KONTEN -->
@@ -365,13 +320,13 @@
       </div>
 
 
-
-      <!-- DATA ADMIN -->
+      <!-- ADMIN -->
 
       <div
         id="adminContent"
         class="admin-content"
       >
+
 
         <button
           class="logout-button"
@@ -402,25 +357,23 @@
 
               <tr>
 
-                <th>
-                  ID
-                </th>
+                <th>ID</th>
 
-                <th>
-                  Waktu
-                </th>
+                <th>Waktu</th>
 
-                <th>
-                  Nama
-                </th>
+                <th>Token</th>
 
-                <th>
-                  Email
-                </th>
+                <th>Nama</th>
 
-                <th>
-                  Pesan
-                </th>
+                <th>Email</th>
+
+                <th>Pesan</th>
+
+                <th>Balasan</th>
+
+                <th>Status</th>
+
+                <th>Aksi</th>
 
               </tr>
 
@@ -445,7 +398,6 @@
   </main>
 
 
-
   <!-- FOOTER -->
 
   <footer>
@@ -463,12 +415,12 @@
   </footer>
 
 
-
   <script>
 
-    /* =========================================
-       PENGATURAN
-    ========================================= */
+
+    // =========================================
+    // PENGATURAN
+    // =========================================
 
     const ADMIN_PASSWORD = "admin123";
 
@@ -477,18 +429,17 @@
       "https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec";
 
 
-    /* =========================================
-       TAHUN
-    ========================================= */
+    // =========================================
+    // TAHUN
+    // =========================================
 
     document.getElementById("tahun").textContent =
       new Date().getFullYear();
 
 
-
-    /* =========================================
-       LOGIN
-    ========================================= */
+    // =========================================
+    // LOGIN
+    // =========================================
 
     function login() {
 
@@ -519,10 +470,9 @@
     }
 
 
-
-    /* =========================================
-       AMBIL DATA
-    ========================================= */
+    // =========================================
+    // AMBIL DATA
+    // =========================================
 
     function loadData() {
 
@@ -533,20 +483,43 @@
         document.getElementById("dataTable");
 
 
+      status.textContent =
+        "⏳ Mengambil data...";
+
+
       fetch(SCRIPT_URL)
 
         .then(function(response) {
 
+          if (!response.ok) {
+            throw new Error("Gagal terhubung ke Apps Script");
+          }
+
           return response.json();
 
         })
+
 
         .then(function(data) {
 
           table.innerHTML = "";
 
 
-          if (!data || data.length === 0) {
+          if (data.error) {
+
+            throw new Error(data.error);
+
+          }
+
+
+          if (!Array.isArray(data)) {
+
+            throw new Error("Format data tidak sesuai");
+
+          }
+
+
+          if (data.length === 0) {
 
             status.textContent =
               "Belum ada pesan dari pengunjung.";
@@ -558,6 +531,7 @@
 
           data.reverse().forEach(function(item) {
 
+
             const row =
               document.createElement("tr");
 
@@ -565,39 +539,63 @@
             row.innerHTML = `
 
               <td>
-                ${item.id || ""}
+                ${aman(item.id)}
               </td>
 
               <td>
-                ${item.waktu || ""}
+                ${aman(item.waktu)}
               </td>
 
               <td>
-                ${item.token || ""}
-              </td>
-
-
-              <td>
-                ${item.nama || ""}
+                <strong>
+                  ${aman(item.token)}
+                </strong>
               </td>
 
               <td>
-                ${item.email || ""}
+                ${aman(item.nama)}
               </td>
 
               <td>
-                ${item.pesan || ""}
+                ${aman(item.email)}
               </td>
 
               <td>
-                ${item.balasan || ""}
+                ${aman(item.pesan)}
               </td>
 
               <td>
-                ${item.status || ""}
+                ${aman(item.balasan)}
               </td>
 
-              
+              <td>
+                <span class="${
+                  item.status === "Sudah Dibalas"
+                    ? "status-selesai"
+                    : "status-menunggu"
+                }">
+                  ${aman(item.status)}
+                </span>
+              </td>
+
+              <td>
+
+                <textarea
+                  class="balasan-input"
+                  id="balasan-${aman(item.token)}"
+                  placeholder="Tulis balasan..."
+                ></textarea>
+
+                <br>
+
+                <button
+                  class="balas-button"
+                  onclick="kirimBalasan('${aman(item.token)}')"
+                >
+                  💬 Balas
+                </button>
+
+              </td>
 
             `;
 
@@ -618,17 +616,155 @@
           console.error(error);
 
           status.textContent =
-            "❌ Gagal mengambil data.";
+            "❌ Gagal mengambil data: " +
+            error.message;
 
         });
 
     }
 
 
+    // =========================================
+    // AMANKAN TEKS
+    // =========================================
 
-    /* =========================================
-       LOGOUT
-    ========================================= */
+    function aman(teks) {
+
+      if (teks === null || teks === undefined) {
+        return "";
+      }
+
+      return String(teks)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    // =========================================
+    // KIRIM BALASAN ADMIN
+    // =========================================
+
+    function kirimBalasan(token) {
+
+      const textarea =
+        document.getElementById(
+          "balasan-" + token
+        );
+
+
+      if (!textarea) {
+
+        alert("Kolom balasan tidak ditemukan.");
+
+        return;
+
+      }
+
+
+      const balasan =
+        textarea.value.trim();
+
+
+      if (!balasan) {
+
+        alert("Silakan tulis balasan terlebih dahulu.");
+
+        return;
+
+      }
+
+
+      const formData =
+        new URLSearchParams();
+
+
+      formData.append(
+        "aksi",
+        "balas"
+      );
+
+
+      formData.append(
+        "token",
+        token
+      );
+
+
+      formData.append(
+        "balasan",
+        balasan
+      );
+
+
+      formData.append(
+        "status",
+        "Sudah Dibalas"
+      );
+
+
+      fetch(
+        SCRIPT_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      )
+
+
+      .then(function(response) {
+
+        return response.text();
+
+      })
+
+
+      .then(function(result) {
+
+
+        if (
+          result.includes(
+            "BALASAN_BERHASIL"
+          )
+        ) {
+
+          alert(
+            "✅ Balasan berhasil dikirim!"
+          );
+
+          loadData();
+
+        } else {
+
+          alert(
+            "❌ Balasan gagal dikirim.\n\n" +
+            result
+          );
+
+        }
+
+      })
+
+
+      .catch(function(error) {
+
+        console.error(error);
+
+        alert(
+          "❌ Terjadi kesalahan saat mengirim balasan."
+        );
+
+      });
+
+    }
+
+
+    // =========================================
+    // LOGOUT
+    // =========================================
 
     function logout() {
 
@@ -647,19 +783,24 @@
     }
 
 
-
-    /* ENTER UNTUK LOGIN */
+    // =========================================
+    // ENTER LOGIN
+    // =========================================
 
     document.getElementById("password")
-      .addEventListener("keypress", function(event) {
+      .addEventListener(
+        "keypress",
+        function(event) {
 
-        if (event.key === "Enter") {
+          if (event.key === "Enter") {
 
-          login();
+            login();
+
+          }
 
         }
+      );
 
-      });
 
   </script>
 

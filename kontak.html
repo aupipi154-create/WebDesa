@@ -11,224 +11,68 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- FAVICON / ICON DESA -->
-<link rel="icon" type="image/jpg" href="favicon.jpg">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <link rel="apple-touch-icon" href="favicon.jpg">
 
-<!-- ICON SAAT DITAMBAHKAN KE LAYAR HP -->
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-title" content="Desa Mensere">
-<meta name="application-name" content="Desa Mensere">
+  <meta name="apple-mobile-web-app-title" content="Desa Mensere">
+  <meta name="application-name" content="Desa Mensere">
 
   <style>
-  .info-box,
-  .contact-box,
-  .map,
-  .message-box {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    visibility: visible !important;
-  }
+
+    .info-box,
+    .contact-box,
+    .map,
+    .message-box,
+    .thank-you-message,
+    #tokenBox {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      visibility: visible !important;
+    }
+
+    #tokenBox {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #fff8fa;
+      border: 2px solid #e5b8c5;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    #tokenTampil {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d16d88;
+      margin: 15px 0;
+      letter-spacing: 2px;
+    }
+
+    #cekBalasanButton {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #669e59;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #balasanBox {
+      margin-top: 20px;
+      text-align: left;
+    }
+
   </style>
 
 </head>
-
-  <!-- TOKEN PENGUNJUNG -->
-<div id="tokenBox" style="
-  display:none;
-  margin-top:25px;
-  padding:20px;
-  background:#fff8fa;
-  border:2px solid #e5b8c5;
-  border-radius:15px;
-  text-align:center;
-">
-
-  <h2 style="color:#2c653f;">
-    🎫 Token Pesan Anda
-  </h2>
-
-  <div id="tokenTampil" style="
-    font-size:28px;
-    font-weight:bold;
-    color:#d16d88;
-    margin:15px 0;
-    letter-spacing:2px;
-  "></div>
-
-  <p>
-    Simpan token ini untuk melihat balasan dari Admin.
-  </p>
-
-  <button
-    type="button"
-    onclick="cekBalasan()"
-    style="
-      padding:12px 20px;
-      border:none;
-      border-radius:10px;
-      background:#669e59;
-      color:white;
-      font-size:16px;
-      cursor:pointer;
-    "
-  >
-    🔄 Cek Balasan Admin
-  </button>
-
-  <div id="balasanBox" style="
-    margin-top:20px;
-    text-align:left;
-  "></div>
-
-</div>
-
-
-<script>
-
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec";
-
-const form = document.getElementById("guestForm");
-const tokenInput = document.getElementById("token");
-
-
-// Membuat token otomatis
-function buatToken() {
-
-  const huruf =
-    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-
-  let hasil = "DM-";
-
-  for (let i = 0; i < 6; i++) {
-
-    hasil +=
-      huruf.charAt(
-        Math.floor(Math.random() * huruf.length)
-      );
-
-  }
-
-  return hasil;
-}
-
-
-// Saat form dikirim
-form.addEventListener("submit", function() {
-
-  const token = buatToken();
-
-  tokenInput.value = token;
-
-  setTimeout(function() {
-
-    document.getElementById("tokenBox").style.display =
-      "block";
-
-    document.getElementById("tokenTampil").textContent =
-      token;
-
-    window.currentToken = token;
-
-  }, 1500);
-
-});
-
-
-// Mengecek balasan Admin
-function cekBalasan() {
-
-  const token = window.currentToken;
-
-  if (!token) {
-    return;
-  }
-
-  const callbackName =
-    "balasanCallback_" + Date.now();
-
-  window[callbackName] = function(data) {
-
-    const box =
-      document.getElementById("balasanBox");
-
-    if (!data.ditemukan) {
-
-      box.innerHTML =
-        "<p>❌ Token tidak ditemukan.</p>";
-
-      return;
-    }
-
-
-    if (data.balasan) {
-
-      box.innerHTML = `
-        <div style="
-          padding:18px;
-          background:#dceccf;
-          border-radius:12px;
-        ">
-
-          <strong>💬 Balasan Admin:</strong>
-
-          <p style="
-            margin-top:10px;
-            line-height:1.6;
-          ">
-            ${data.balasan}
-          </p>
-
-        </div>
-      `;
-
-    } else {
-
-      box.innerHTML = `
-        <div style="
-          padding:18px;
-          background:#fff8fa;
-          border-radius:12px;
-        ">
-          ⏳ Pesan Anda masih menunggu balasan Admin.
-        </div>
-      `;
-    }
-
-
-    delete window[callbackName];
-    document.getElementById(
-      "jsonpScript"
-    )?.remove();
-
-  };
-
-
-  const script =
-    document.createElement("script");
-
-  script.id = "jsonpScript";
-
-  script.src =
-    SCRIPT_URL +
-    "?token=" +
-    encodeURIComponent(token) +
-    "&callback=" +
-    callbackName;
-
-  document.body.appendChild(script);
-
-}
-
-</script>
 
 
 <body>
 
 
-  <!-- =========================================
-       LANGIT
-  ========================================= -->
+  <!-- LANGIT -->
 
   <div class="sky">
 
@@ -247,16 +91,13 @@ function cekBalasan() {
   </div>
 
 
-  <!-- =========================================
-       HEADER / NAVBAR
-  ========================================= -->
+  <!-- HEADER -->
 
   <header>
 
     <div class="logo">
       Desa Mensere
     </div>
-
 
     <nav>
 
@@ -297,9 +138,7 @@ function cekBalasan() {
   </header>
 
 
-  <!-- =========================================
-       KONTEN
-  ========================================= -->
+  <!-- KONTEN -->
 
   <main class="content">
 
@@ -310,15 +149,15 @@ function cekBalasan() {
 
 
     <p class="page-description">
+
       Silakan hubungi Desa Mensere atau kirimkan
       pesan, saran, dan masukan melalui formulir
       di bawah ini.
+
     </p>
 
 
-    <!-- =========================================
-         INFORMASI KONTAK
-    ========================================= -->
+    <!-- INFORMASI KONTAK -->
 
     <div class="contact-info">
 
@@ -379,9 +218,7 @@ function cekBalasan() {
     </div>
 
 
-    <!-- =========================================
-         GOOGLE MAPS
-    ========================================= -->
+    <!-- GOOGLE MAPS -->
 
     <div class="contact-location">
 
@@ -404,9 +241,7 @@ function cekBalasan() {
     </div>
 
 
-    <!-- =========================================
-         FORM PESAN
-    ========================================= -->
+    <!-- FORM PESAN -->
 
     <div class="message-box">
 
@@ -431,6 +266,7 @@ function cekBalasan() {
         method="POST"
         target="hiddenFrame"
       >
+
 
         <label for="nama">
           Nama Lengkap
@@ -470,6 +306,15 @@ function cekBalasan() {
         ></textarea>
 
 
+        <!-- TOKEN DIKIRIM KE APPS SCRIPT -->
+
+        <input
+          type="hidden"
+          id="token"
+          name="token"
+        >
+
+
         <button
           type="submit"
           id="sendButton"
@@ -480,12 +325,11 @@ function cekBalasan() {
 
         <p id="statusPesan"></p>
 
-        <input type="hidden" id="token" name="token">
 
       </form>
 
 
-      <!-- Frame tersembunyi untuk menerima hasil Apps Script -->
+      <!-- IFRAME TERSEMBUNYI -->
 
       <iframe
         name="hiddenFrame"
@@ -497,9 +341,42 @@ function cekBalasan() {
     </div>
 
 
-    <!-- =========================================
-         UCAPAN TERIMA KASIH
-    ========================================= -->
+    <!-- TOKEN -->
+
+    <div id="tokenBox">
+
+      <h2 style="color:#2c653f;">
+        🎫 Token Pesan Anda
+      </h2>
+
+
+      <div id="tokenTampil"></div>
+
+
+      <p>
+        Simpan token ini baik-baik.
+      </p>
+
+      <p>
+        Token digunakan untuk melihat
+        balasan dari Admin.
+      </p>
+
+
+      <button
+        type="button"
+        id="cekBalasanButton"
+      >
+        🔄 Cek Balasan Admin
+      </button>
+
+
+      <div id="balasanBox"></div>
+
+    </div>
+
+
+    <!-- UCAPAN -->
 
     <div class="thank-you-message">
 
@@ -518,9 +395,7 @@ function cekBalasan() {
   </main>
 
 
-  <!-- =========================================
-       FOOTER
-  ========================================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -537,22 +412,25 @@ function cekBalasan() {
   </footer>
 
 
-  <!-- =========================================
-       SCRIPT KHUSUS KONTAK
-  ========================================= -->
+  <!-- SCRIPT -->
 
   <script>
 
-    /* Tahun otomatis */
-
-    document.getElementById("tahun").textContent =
-      new Date().getFullYear();
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec";
 
 
-    /* Form pesan */
-
-    const guestForm =
+    const form =
       document.getElementById("guestForm");
+
+    const tokenInput =
+      document.getElementById("token");
+
+    const tokenBox =
+      document.getElementById("tokenBox");
+
+    const tokenTampil =
+      document.getElementById("tokenTampil");
 
     const sendButton =
       document.getElementById("sendButton");
@@ -563,57 +441,281 @@ function cekBalasan() {
     const hiddenFrame =
       document.getElementById("hiddenFrame");
 
+    const cekButton =
+      document.getElementById("cekBalasanButton");
+
+    const balasanBox =
+      document.getElementById("balasanBox");
+
 
     let sedangMengirim = false;
 
 
-    /* Saat tombol diklik */
+    // =================================
+    // MEMBUAT TOKEN
+    // =================================
 
-    guestForm.addEventListener("submit", function () {
+    function buatToken() {
 
-      sedangMengirim = true;
+      const huruf =
+        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
-      statusPesan.textContent =
-        "⏳ Sedang mengirim pesan...";
-
-      sendButton.disabled = true;
-
-      sendButton.textContent =
-        "⏳ Mengirim...";
-
-    });
+      let token = "DM-";
 
 
-    /* Setelah Apps Script menerima kiriman */
+      for (let i = 0; i < 6; i++) {
 
-    hiddenFrame.addEventListener("load", function () {
+        token += huruf.charAt(
+          Math.floor(
+            Math.random() * huruf.length
+          )
+        );
 
-      if (!sedangMengirim) {
-        return;
       }
 
 
-      statusPesan.textContent =
-        "✅ Pesan berhasil dikirim!";
+      return token;
+
+    }
 
 
-      sendButton.textContent =
-        "✅ Berhasil";
+    // =================================
+    // SAAT FORM DIKIRIM
+    // =================================
+
+    form.addEventListener(
+      "submit",
+      function () {
 
 
-      /*
-        Tunggu 1 detik,
-        lalu masuk ke halaman admin
-      */
+        const token =
+          buatToken();
 
-      setTimeout(function () {
 
-        window.location.href =
-          "admin.html";
+        // Masukkan token ke form
 
-      }, 1000);
+        tokenInput.value =
+          token;
 
-    });
+
+        // Simpan token di HP
+
+        localStorage.setItem(
+          "tokenDesaMensere",
+          token
+        );
+
+
+        // Tampilkan token LANGSUNG
+
+        tokenTampil.textContent =
+          token;
+
+        tokenBox.style.display =
+          "block";
+
+
+        // Status
+
+        statusPesan.textContent =
+          "⏳ Sedang mengirim pesan...";
+
+
+        sendButton.disabled =
+          true;
+
+        sendButton.textContent =
+          "⏳ Mengirim...";
+
+
+        sedangMengirim =
+          true;
+
+      }
+    );
+
+
+    // =================================
+    // SETELAH FORM SELESAI DIKIRIM
+    // =================================
+
+    hiddenFrame.addEventListener(
+      "load",
+      function () {
+
+
+        if (!sedangMengirim) {
+          return;
+        }
+
+
+        statusPesan.textContent =
+          "✅ Pesan berhasil dikirim!";
+
+
+        sendButton.textContent =
+          "✅ Berhasil";
+
+
+        sedangMengirim =
+          false;
+
+
+      }
+    );
+
+
+    // =================================
+    // CEK BALASAN
+    // =================================
+
+    cekButton.addEventListener(
+      "click",
+      function () {
+
+
+        const token =
+          localStorage.getItem(
+            "tokenDesaMensere"
+          );
+
+
+        if (!token) {
+
+          balasanBox.innerHTML =
+            "<p>❌ Token belum tersedia.</p>";
+
+          return;
+
+        }
+
+
+        balasanBox.innerHTML =
+          "<p>⏳ Mengecek balasan...</p>";
+
+
+        fetch(
+          SCRIPT_URL +
+          "?token=" +
+          encodeURIComponent(token)
+        )
+
+
+        .then(
+          function(response) {
+            return response.json();
+          }
+        )
+
+
+        .then(
+          function(data) {
+
+
+            if (!data.ditemukan) {
+
+              balasanBox.innerHTML = `
+                <div style="
+                  padding:18px;
+                  background:#fff8fa;
+                  border-radius:12px;
+                ">
+                  ❌ Token tidak ditemukan.
+                </div>
+              `;
+
+              return;
+
+            }
+
+
+            if (data.balasan) {
+
+              balasanBox.innerHTML = `
+
+                <div style="
+                  padding:18px;
+                  background:#dceccf;
+                  border-radius:12px;
+                ">
+
+                  <strong>
+                    💬 Balasan Admin
+                  </strong>
+
+                  <p style="
+                    margin-top:10px;
+                    line-height:1.6;
+                  ">
+                    ${data.balasan}
+                  </p>
+
+                  <p>
+                    <strong>Status:</strong>
+                    ${data.status}
+                  </p>
+
+                </div>
+
+              `;
+
+            } else {
+
+              balasanBox.innerHTML = `
+
+                <div style="
+                  padding:18px;
+                  background:#fff8fa;
+                  border-radius:12px;
+                ">
+
+                  ⏳ Pesan Anda masih
+                  menunggu balasan Admin.
+
+                </div>
+
+              `;
+
+            }
+
+          }
+        )
+
+
+        .catch(
+          function(error) {
+
+            console.error(error);
+
+            balasanBox.innerHTML = `
+
+              <div style="
+                padding:18px;
+                background:#fff8fa;
+                border-radius:12px;
+              ">
+
+                ❌ Gagal mengambil balasan.
+
+              </div>
+
+            `;
+
+          }
+        );
+
+      }
+    );
+
+
+    // =================================
+    // TAHUN
+    // =================================
+
+    document.getElementById("tahun")
+      .textContent =
+      new Date().getFullYear();
+
 
   </script>
 
