@@ -32,6 +32,196 @@
 
 </head>
 
+  <!-- TOKEN PENGUNJUNG -->
+<div id="tokenBox" style="
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  background:#fff8fa;
+  border:2px solid #e5b8c5;
+  border-radius:15px;
+  text-align:center;
+">
+
+  <h2 style="color:#2c653f;">
+    🎫 Token Pesan Anda
+  </h2>
+
+  <div id="tokenTampil" style="
+    font-size:28px;
+    font-weight:bold;
+    color:#d16d88;
+    margin:15px 0;
+    letter-spacing:2px;
+  "></div>
+
+  <p>
+    Simpan token ini untuk melihat balasan dari Admin.
+  </p>
+
+  <button
+    type="button"
+    onclick="cekBalasan()"
+    style="
+      padding:12px 20px;
+      border:none;
+      border-radius:10px;
+      background:#669e59;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    "
+  >
+    🔄 Cek Balasan Admin
+  </button>
+
+  <div id="balasanBox" style="
+    margin-top:20px;
+    text-align:left;
+  "></div>
+
+</div>
+
+
+<script>
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec";
+
+const form = document.getElementById("guestForm");
+const tokenInput = document.getElementById("token");
+
+
+// Membuat token otomatis
+function buatToken() {
+
+  const huruf =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+  let hasil = "DM-";
+
+  for (let i = 0; i < 6; i++) {
+
+    hasil +=
+      huruf.charAt(
+        Math.floor(Math.random() * huruf.length)
+      );
+
+  }
+
+  return hasil;
+}
+
+
+// Saat form dikirim
+form.addEventListener("submit", function() {
+
+  const token = buatToken();
+
+  tokenInput.value = token;
+
+  setTimeout(function() {
+
+    document.getElementById("tokenBox").style.display =
+      "block";
+
+    document.getElementById("tokenTampil").textContent =
+      token;
+
+    window.currentToken = token;
+
+  }, 1500);
+
+});
+
+
+// Mengecek balasan Admin
+function cekBalasan() {
+
+  const token = window.currentToken;
+
+  if (!token) {
+    return;
+  }
+
+  const callbackName =
+    "balasanCallback_" + Date.now();
+
+  window[callbackName] = function(data) {
+
+    const box =
+      document.getElementById("balasanBox");
+
+    if (!data.ditemukan) {
+
+      box.innerHTML =
+        "<p>❌ Token tidak ditemukan.</p>";
+
+      return;
+    }
+
+
+    if (data.balasan) {
+
+      box.innerHTML = `
+        <div style="
+          padding:18px;
+          background:#dceccf;
+          border-radius:12px;
+        ">
+
+          <strong>💬 Balasan Admin:</strong>
+
+          <p style="
+            margin-top:10px;
+            line-height:1.6;
+          ">
+            ${data.balasan}
+          </p>
+
+        </div>
+      `;
+
+    } else {
+
+      box.innerHTML = `
+        <div style="
+          padding:18px;
+          background:#fff8fa;
+          border-radius:12px;
+        ">
+          ⏳ Pesan Anda masih menunggu balasan Admin.
+        </div>
+      `;
+    }
+
+
+    delete window[callbackName];
+    document.getElementById(
+      "jsonpScript"
+    )?.remove();
+
+  };
+
+
+  const script =
+    document.createElement("script");
+
+  script.id = "jsonpScript";
+
+  script.src =
+    SCRIPT_URL +
+    "?token=" +
+    encodeURIComponent(token) +
+    "&callback=" +
+    callbackName;
+
+  document.body.appendChild(script);
+
+}
+
+</script>
+
 
 <body>
 
@@ -237,7 +427,7 @@
 
       <form
         id="guestForm"
-        action="https://script.google.com/macros/s/AKfycbxQ8B31LUIg4sYRopLwjS8B3JDqnshjJKTeSR7kncAD5PMLd_m2VXhWpTRL7PWH5XFG/exec"
+        action="https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec"
         method="POST"
         target="hiddenFrame"
       >
@@ -289,6 +479,8 @@
 
 
         <p id="statusPesan"></p>
+
+        <input type="hidden" id="token" name="token">
 
       </form>
 
