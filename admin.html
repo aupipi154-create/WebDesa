@@ -307,6 +307,7 @@
           type="password"
           id="password"
           placeholder="Masukkan password"
+          autocomplete="current-password"
         >
 
 
@@ -407,126 +408,242 @@
   </footer>
 
 
+   
+            );
+
+
+  try {
+
+    const response =
+      await fetch(
+        SCRIPT_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+
+    const hasil =
+      await response.json();
+
+
+    if (!hasil.sukses) {
+
+      alert(
+        "❌ " + hasil.pesan
+      );
+
+      return;
+    }
+
+
+    alert(
+      "✅ Balasan berhasil dikirim!"
+    );
+
+
+    loadData();
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      "❌ Terjadi kesalahan saat mengirim balasan."
+    );
+
+  }
+
+    }
+
+      
+          
+
+
+    // =========================================
+    // LOGOUT
+    // =========================================
+
+    async function logout() {
+
+      try {
+
+        if (adminSession) {
+
+          const formData =
+            new URLSearchParams();
+
+
+          formData.append(
+            "aksi",
+            "logoutAdmin"
+          );
+
+
+          formData.append(
+            "session",
+            adminSession
+          );
+
+
+          await fetch(
+            SCRIPT_URL,
+            {
+              method: "POST",
+              body: formData
+            }
+          );
+
+        }
+
   <script>
 
+  // =========================================
+  // URL APPS SCRIPT
+  // =========================================
 
-    // =========================================
-    // PENGATURAN
-    // =========================================
-
-    const ADMIN_PASSWORD = "admin123";
-
-
-    // URL APPS SCRIPT BARU
-    const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbwc2KT3wPggu-_XZDi4jbHJiWH2mn61CDvFGbGpcavxCv7vESejkUUyi61AZU_erEShKg/exec";
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbx7HltUQfv7dMxTrAp2i47RSCdQstUK3hH-xrZ4cnvZ7m3FHOxp6-mnfLATQYJnTR2A/exec";
 
 
-    // =========================================
-    // TAHUN
-    // =========================================
+  // =========================================
+  // TAHUN
+  // =========================================
 
-    document.getElementById("tahun").textContent =
-      new Date().getFullYear();
-
-
-    // =========================================
-    // LOGIN
-    // =========================================
-
-    function login() {
-
-      const password =
-        document.getElementById("password").value;
-
-      const status =
-        document.getElementById("loginStatus");
+  document.getElementById("tahun").textContent =
+    new Date().getFullYear();
 
 
-      if (password === ADMIN_PASSWORD) {
+  // =========================================
+  // LOGIN ADMIN
+  // =========================================
 
-        document.getElementById("loginBox").style.display =
-          "none";
+  async function login() {
 
-        document.getElementById("adminContent").style.display =
-          "block";
+    const password =
+      document.getElementById("password").value.trim();
 
-        loadData();
+    const status =
+      document.getElementById("loginStatus");
 
-      } else {
 
-        status.textContent =
-          "❌ Password salah.";
+    if (!password) {
 
-      }
+      status.textContent =
+        "❌ Masukkan password.";
 
+      return;
     }
 
 
     // =========================================
-    // AMBIL DATA
+    // PASSWORD ADMIN
     // =========================================
 
-    function loadData() {
-
-      const status =
-        document.getElementById("dataStatus");
-
-      const table =
-        document.getElementById("dataTable");
-
+    if (password !== "admin123") {
 
       status.textContent =
-        "⏳ Mengambil data...";
+        "❌ Password salah.";
+
+      return;
+    }
 
 
-      fetch(SCRIPT_URL)
+    // =========================================
+    // LOGIN BERHASIL
+    // =========================================
 
-        .then(function(response) {
-
-          if (!response.ok) {
-            throw new Error(
-              "Gagal terhubung ke Apps Script"
-            );
-          }
-
-          return response.json();
-
-        })
+    status.textContent =
+      "✅ Login berhasil.";
 
 
-        .then(function(data) {
-
-          table.innerHTML = "";
-
-
-          if (data.error) {
-
-            throw new Error(data.error);
-
-          }
+    document.getElementById(
+      "loginBox"
+    ).style.display = "none";
 
 
-          if (!Array.isArray(data)) {
-
-            throw new Error(
-              "Format data tidak sesuai"
-            );
-
-          }
+    document.getElementById(
+      "adminContent"
+    ).style.display = "block";
 
 
-          if (data.length === 0) {
+    loadData();
 
-            status.textContent =
-              "Belum ada pesan dari pengunjung.";
-
-            return;
-
-          }
+  }
 
 
-          data.reverse().forEach(function(item) {
+  // =========================================
+  // AMBIL DATA DARI GOOGLE SHEET
+  // =========================================
+
+  function loadData() {
+
+    const status =
+      document.getElementById("dataStatus");
+
+    const table =
+      document.getElementById("dataTable");
+
+
+    status.textContent =
+      "⏳ Mengambil data...";
+
+
+    fetch(SCRIPT_URL)
+
+      .then(function(response) {
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Gagal terhubung ke Apps Script"
+          );
+
+        }
+
+        return response.json();
+
+      })
+
+
+      .then(function(data) {
+
+        table.innerHTML = "";
+
+
+        if (data.error) {
+
+          throw new Error(
+            data.error
+          );
+
+        }
+
+
+        if (!Array.isArray(data)) {
+
+          throw new Error(
+            "Format data tidak sesuai"
+          );
+
+        }
+
+
+        if (data.length === 0) {
+
+          status.textContent =
+            "Belum ada pesan dari pengunjung.";
+
+          return;
+
+        }
+
+
+        // DATA TERBARU DI ATAS
+        data.reverse().forEach(
+          function(item) {
 
 
             const row =
@@ -562,17 +679,25 @@
               </td>
 
               <td>
-                ${aman(item.balasan)}
+                ${
+                  item.balasan
+                    ? aman(item.balasan)
+                    : "-"
+                }
               </td>
 
               <td>
+
                 <span class="${
                   item.status === "Sudah Dibalas"
                     ? "status-selesai"
                     : "status-menunggu"
                 }">
+
                   ${aman(item.status)}
+
                 </span>
+
               </td>
 
               <td>
@@ -589,7 +714,9 @@
                   class="balas-button"
                   onclick="kirimBalasan('${aman(item.token)}')"
                 >
+
                   💬 Balas
+
                 </button>
 
               </td>
@@ -599,160 +726,12 @@
 
             table.appendChild(row);
 
-          });
-
-
-          status.textContent =
-            "✅ Data berhasil dimuat.";
-
-        })
-
-
-        .catch(function(error) {
-
-          console.error(error);
-
-          status.textContent =
-            "❌ Gagal mengambil data: " +
-            error.message;
-
-        });
-
-    }
-
-
-    // =========================================
-    // AMANKAN TEKS
-    // =========================================
-
-    function aman(teks) {
-
-      if (
-        teks === null ||
-        teks === undefined
-      ) {
-
-        return "";
-
-      }
-
-
-      return String(teks)
-
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-    }
-
-
-    // =========================================
-    // KIRIM BALASAN ADMIN
-    // =========================================
-
-    function kirimBalasan(token) {
-
-      const textarea =
-        document.getElementById(
-          "balasan-" + token
+          }
         );
 
 
-      if (!textarea) {
-
-        alert(
-          "Kolom balasan tidak ditemukan."
-        );
-
-        return;
-
-      }
-
-
-      const balasan =
-        textarea.value.trim();
-
-
-      if (!balasan) {
-
-        alert(
-          "Silakan tulis balasan terlebih dahulu."
-        );
-
-        return;
-
-      }
-
-
-      const formData =
-        new URLSearchParams();
-
-
-      formData.append(
-        "aksi",
-        "balas"
-      );
-
-
-      formData.append(
-        "token",
-        token
-      );
-
-
-      formData.append(
-        "balasan",
-        balasan
-      );
-
-
-      formData.append(
-        "status",
-        "Sudah Dibalas"
-      );
-
-
-      fetch(
-        SCRIPT_URL,
-        {
-          method: "POST",
-          body: formData
-        }
-      )
-
-
-      .then(function(response) {
-
-        return response.text();
-
-      })
-
-
-      .then(function(result) {
-
-
-        if (
-          result.includes(
-            "BALASAN_BERHASIL"
-          )
-        ) {
-
-          alert(
-            "✅ Balasan berhasil dikirim!"
-          );
-
-          loadData();
-
-        } else {
-
-          alert(
-            "❌ Balasan gagal dikirim.\n\n" +
-            result
-          );
-
-        }
+        status.textContent =
+          "✅ Data berhasil dimuat.";
 
       })
 
@@ -761,64 +740,253 @@
 
         console.error(error);
 
-        alert(
-          "❌ Terjadi kesalahan saat mengirim balasan."
-        );
+        status.textContent =
+          "❌ Gagal mengambil data: " +
+          error.message;
 
       });
 
-    }
+  }
 
 
-    // =========================================
-    // LOGOUT
-    // =========================================
+  // =========================================
+  // AMANKAN TEKS
+  // =========================================
 
-    function logout() {
+  function aman(teks) {
 
-      document.getElementById(
-        "adminContent"
-      ).style.display = "none";
+    if (
+      teks === null ||
+      teks === undefined
+    ) {
 
-
-      document.getElementById(
-        "loginBox"
-      ).style.display = "block";
-
-
-      document.getElementById(
-        "password"
-      ).value = "";
-
-
-      document.getElementById(
-        "loginStatus"
-      ).textContent = "";
+      return "";
 
     }
 
 
-    // =========================================
-    // ENTER LOGIN
-    // =========================================
+    return String(teks)
 
-    document.getElementById("password")
-      .addEventListener(
-        "keypress",
-        function(event) {
+      .replace(
+        /&/g,
+        "&amp;"
+      )
 
-          if (event.key === "Enter") {
+      .replace(
+        /</g,
+        "&lt;"
+      )
 
-            login();
+      .replace(
+        />/g,
+        "&gt;"
+      )
 
-          }
+      .replace(
+        /"/g,
+        "&quot;"
+      )
 
-        }
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+
+  // =========================================
+  // KIRIM BALASAN
+  // 🔐 KODE RAHASIA
+  // =========================================
+
+  async function kirimBalasan(token) {
+
+    const kode =
+      prompt(
+        "🔐 Masukkan kode khusus Admin untuk membalas:"
       );
 
 
-  </script>
+    if (kode === null) {
 
+      return;
+
+    }
+
+
+    if (!kode.trim()) {
+
+      alert(
+        "❌ Kode balasan wajib diisi."
+      );
+
+      return;
+
+    }
+
+
+    const textarea =
+      document.getElementById(
+        "balasan-" + token
+      );
+
+
+    if (!textarea) {
+
+      alert(
+        "❌ Kolom balasan tidak ditemukan."
+      );
+
+      return;
+
+    }
+
+
+    const balasan =
+      textarea.value.trim();
+
+
+    if (!balasan) {
+
+      alert(
+        "❌ Silakan tulis balasan terlebih dahulu."
+      );
+
+      return;
+
+    }
+
+
+    const formData =
+      new URLSearchParams();
+
+
+    formData.append(
+      "aksi",
+      "balas"
+    );
+
+
+    formData.append(
+      "kode",
+      kode
+    );
+
+
+    formData.append(
+      "token",
+      token
+    );
+
+
+    formData.append(
+      "balasan",
+      balasan
+    );
+
+
+    formData.append(
+      "status",
+      "Sudah Dibalas"
+    );
+
+
+    try {
+
+      const response =
+        await fetch(
+          SCRIPT_URL,
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+
+      const hasil =
+        await response.json();
+
+
+      if (!hasil.sukses) {
+
+        alert(
+          "❌ " + hasil.pesan
+        );
+
+        return;
+
+      }
+
+
+      alert(
+        "✅ Balasan berhasil dikirim!"
+      );
+
+
+      loadData();
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "❌ Terjadi kesalahan saat mengirim balasan."
+      );
+
+    }
+
+  }
+
+
+  // =========================================
+  // LOGOUT
+  // =========================================
+
+  function logout() {
+
+    document.getElementById(
+      "adminContent"
+    ).style.display = "none";
+
+
+    document.getElementById(
+      "loginBox"
+    ).style.display = "block";
+
+
+    document.getElementById(
+      "password"
+    ).value = "";
+
+
+    document.getElementById(
+      "loginStatus"
+    ).textContent = "";
+
+  }
+
+
+  // =========================================
+  // ENTER UNTUK LOGIN
+  // =========================================
+
+  document.getElementById("password")
+    .addEventListener(
+      "keypress",
+      function(event) {
+
+        if (event.key === "Enter") {
+
+          login();
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 

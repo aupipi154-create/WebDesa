@@ -262,7 +262,7 @@
 
       <form
         id="guestForm"
-        action="https://script.google.com/macros/s/AKfycbxWiyzJytVQkJRZE-4Ba6BOp7jApSm-EfGbdJuZsnc4HMCfiiKHidi_81J88Z-Kd149Dg/exec"
+        action="https://script.google.com/macros/s/AKfycbx7HltUQfv7dMxTrAp2i47RSCdQstUK3hH-xrZ4cnvZ7m3FHOxp6-mnfLATQYJnTR2A/exec"
         method="POST"
         target="hiddenFrame"
       >
@@ -417,8 +417,7 @@
   <script>
 
     const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbwc2KT3wPggu-_XZDi4jbHJiWH2mn61CDvFGbGpcavxCv7vESejkUUyi61AZU_erEShKg/exec";
-
+      "https://script.google.com/macros/s/AKfycbx7HltUQfv7dMxTrAp2i47RSCdQstUK3hH-xrZ4cnvZ7m3FHOxp6-mnfLATQYJnTR2A/exec";
     const form =
       document.getElementById("guestForm");
 
@@ -535,33 +534,31 @@
 
 
     // =================================
-    // SETELAH FORM SELESAI DIKIRIM
-    // =================================
+// SETELAH FORM SELESAI DIKIRIM
+// =================================
 
-    hiddenFrame.addEventListener(
-      "load",
-      function () {
+hiddenFrame.addEventListener(
+  "load",
+  function () {
 
+    if (!sedangMengirim) {
+      return;
+    }
 
-        if (!sedangMengirim) {
-          return;
-        }
+    statusPesan.textContent =
+      "✅ Pesan berhasil dikirim!";
 
+    sendButton.disabled =
+      false;
 
-        statusPesan.textContent =
-          "✅ Pesan berhasil dikirim!";
+    sendButton.textContent =
+      "💌 Kirim Pesan";
 
+    sedangMengirim =
+      false;
 
-        sendButton.textContent =
-          "✅ Berhasil";
-
-
-        sedangMengirim =
-          false;
-
-
-      }
-    );
+  }
+);
 
 
     // =================================
