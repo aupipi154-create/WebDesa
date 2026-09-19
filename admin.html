@@ -408,95 +408,7 @@
   </footer>
 
 
-   
-            );
-
-
-  try {
-
-    const response =
-      await fetch(
-        SCRIPT_URL,
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-
-    const hasil =
-      await response.json();
-
-
-    if (!hasil.sukses) {
-
-      alert(
-        "❌ " + hasil.pesan
-      );
-
-      return;
-    }
-
-
-    alert(
-      "✅ Balasan berhasil dikirim!"
-    );
-
-
-    loadData();
-
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(
-      "❌ Terjadi kesalahan saat mengirim balasan."
-    );
-
-  }
-
-    }
-
-      
-          
-
-
-    // =========================================
-    // LOGOUT
-    // =========================================
-
-    async function logout() {
-
-      try {
-
-        if (adminSession) {
-
-          const formData =
-            new URLSearchParams();
-
-
-          formData.append(
-            "aksi",
-            "logoutAdmin"
-          );
-
-
-          formData.append(
-            "session",
-            adminSession
-          );
-
-
-          await fetch(
-            SCRIPT_URL,
-            {
-              method: "POST",
-              body: formData
-            }
-          );
-
-        }
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -642,6 +554,7 @@
 
 
         // DATA TERBARU DI ATAS
+
         data.reverse().forEach(
           function(item) {
 
@@ -987,6 +900,7 @@
     );
 
   </script>
+
 
 </body>
 
